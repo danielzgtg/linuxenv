@@ -10,6 +10,28 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 #<Multi_key> <h> <n> <k> : "hugs and kisses" # Compose h n k
 #<Multi_key> <less> < p> : "< p></p>" # Compose < p
 
+#Math
+<Multi_key> <Multi_key> <m> <a>            : "∀"   U2200    # FOR ALL
+<Multi_key> <Multi_key> <m> <asterick>     : "×"   U00D7    # MULTIPLICATION SIGN
+<Multi_key> <Multi_key> <m> <slash>        : "÷"   U00F7    # DIVISION SIGN
+<Multi_key> <Multi_key> <m> <n>            : "∇"   U2207    # NABLA
+<Multi_key> <Multi_key> <m> <f>            : "∫"   U222B    # INTEGRAL
+<Multi_key> <Multi_key> <m> <c>            : "∈"   U2208    # ELEMENT OF
+<Multi_key> <Multi_key> <m> <l>            : "∞"   U221E    # INFINITY
+<Multi_key> <Multi_key> <m> <p>            : "∝"   U221D    # PROPORTIONAL TO
+<Multi_key> <Multi_key> <m> <d>            : "∂"   U2202    # PARTIAL DIFFERENTIAL
+<Multi_key> <Multi_key> <m> <e> <t>        : "∃"   U2203    # THERE EXISTS
+<Multi_key> <Multi_key> <m> <e> <f>        : "∄"   U2204    # THERE DOES NOT EXIST
+<Multi_key> <Multi_key> <m> <t>            : "∴"   U2234    # THEREFORE
+<Multi_key> <Multi_key> <m> <b>            : "∵"   U2208    # BECAUSE
+<Multi_key> <Multi_key> <m> <i>            : "∩"   U2229    # INTERSECTION
+<Multi_key> <Multi_key> <m> <u>            : "∪"   U222A    # UNION
+<Multi_key> <Multi_key> <m> <z>            : "∅"   U2205    # EMPTY SET
+<Multi_key> <Multi_key> <m> <ampersand>    : "∧"   U2227    # LOGICAL AND
+<Multi_key> <Multi_key> <m> <bar>          : "∨"   U2228    # LOGICAL OR
+<Multi_key> <Multi_key> <m> <x>            : "⊕"   U2295    # Xor
+<Multi_key> <equal> <equal> <equal>        : "≡"   U2261    # Identical to
+
 #Greek
 <Multi_key> <Multi_key> <g> <A>            : "Α"   U0391    # GREEK CAPITAL LETTER ALPHA
 <Multi_key> <Multi_key> <g> <a>            : "α"   U03B1    # GREEK SMALL LETTER ALPHA
