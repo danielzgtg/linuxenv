@@ -1,0 +1,2 @@
+#!/bin/bash
+exec java -jar ~/'bin/plantuml.1.2021.1.jar' "$@"

@@ -1,0 +1,34 @@
+#!/bin/bash
+set -e
+
+# https://superuser.com/a/141343
+
+usage() {
+    echo 'Usage: videotrim video.mp4 00:00:10.0'
+    exit 1
+}
+
+if [ "$#" -ne 2 ]; then
+    echo 'Wrong number of arguments'
+    usage
+fi
+
+if [[ ! "$1" =~ .+\..+ ]]; then
+    echo 'No file extension'
+    usage
+fi
+
+if [[ ! "$2" =~ [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\.[0-9] ]]; then
+    echo 'Wrong time format'
+    usage
+fi
+
+if [ ! -f "$1" ]; then
+    echo 'File missing'
+    usage
+fi
+
+base="${1%.*}";
+ext="${1##*.}";
+
+ffmpeg -i "$1" -c copy -t "$2" "$base"'.trim.'"$ext"

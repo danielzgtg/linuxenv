@@ -1,0 +1,51 @@
+#!/bin/bash
+set -e
+
+# https://superuser.com/a/1358974
+
+usage() {
+    echo 'Usage: videofast_norenc video.mp4'
+    exit 1
+}
+
+if [ "$#" -ne 1 ]; then
+    echo 'Wrong number of arguments'
+    usage
+fi
+
+if [[ ! "$1" =~ .+\..+ ]]; then
+    echo 'No file extension'
+    usage
+fi
+
+if [ ! -f "$1" ]; then
+    echo 'File missing'
+    usage
+fi
+
+base="${1%.*}";
+ext="${1##*.}";
+
+input="$1"
+bitstream="$base".bitstream.h264
+double="$base".double."$ext"
+audio="$base".audio.mkv
+output="$base".fast2."$ext"
+
+cleanup() {
+    rm -f "$bitstream" "$double" "$audio"
+}
+
+if [ -f "$output" ]; then
+    echo 'Output already exists'
+    usage
+fi
+
+cleanup
+
+ffmpeg -i "$input" -map 0:v -vcodec copy -bsf:v h264_mp4toannexb "$bitstream"
+ffmpeg -fflags +genpts -r 60 -i "$bitstream" -vcodec copy "$double"
+ffmpeg -i "$input" -filter:a "atempo=2.0" -vn "$audio"
+ffmpeg -i "$double" -i "$audio" -c:v copy -c:a copy "$output"
+
+cleanup

@@ -2,6 +2,17 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+if [[ $EUID -eq 0 ]]; then
+    echo ".bashrc of users should not be sourced by root."
+    exit 1
+fi
+
+# make file creation private
+umask 027
+
+# disable history
+unset HISTFILE
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -91,9 +102,9 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias ll='exa -alF'
+alias la='exa -a'
+alias l='exa'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -130,4 +141,16 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #eval "$(starship init bash)"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export ANDROID_SDK_ROOT=~/Android/Sdk/
+git() { if [[ $1 == "pull" ]]; then command echo "Cannot pull!"; else command git "$@"; fi; }
+
+alias cdsk='cd $(sk)'
+alias visk='vim $(sk)'
+mkdircd() {
+  mkdir "$1" && cd "$1"
+}
+mvln() {
+  mv -vnt "$2" "$1" | grep -q . && ln -s "$2"/"$1"
+}
 
