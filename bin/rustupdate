@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+rustup update
+exec cargo install-update -af
