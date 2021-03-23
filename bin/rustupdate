@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e
 rustup update
-exec cargo install-update -af
+exec nice cargo install-update -af
