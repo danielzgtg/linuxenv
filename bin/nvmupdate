@@ -1,2 +1,2 @@
 #!/bin/bash
-exec nvm install node --reinstall-packages-from=node
+nvm install node --reinstall-packages-from=node
