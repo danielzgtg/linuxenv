@@ -1,0 +1,8 @@
+cryptowatch
+iio-sensor-proxy
+intel-gpu-tools
+intel-media-va-driver-non-free
+intel-microcode
+linux-headers-surface
+linux-image-surface
+surface-control

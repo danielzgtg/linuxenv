@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+. ~/opt/yt-dl/venv/bin/activate
+exec ~/opt/yt-dl/venv/bin/yt-dlp "$@"

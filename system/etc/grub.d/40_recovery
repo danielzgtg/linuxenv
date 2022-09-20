@@ -1,0 +1,13 @@
+#!/bin/sh
+exec tail -n +3 $0
+menuentry "Ubuntu Live Partition Recovery" {
+        insmod part_gpt
+        insmod chain
+        set root='hd0,gpt13'
+        if [ x$feature_platform_search_hint = xy ]; then
+          search --no-floppy --fs-uuid --set=root --hint-bios=hd0,gpt13 --hint-efi=hd0,gpt13 --hint-baremetal=achi0,gpt13 2022-04-19-10-23-19-00
+        else
+          search --no-floppy --fs-uuid --set=root 2022-04-19-10-23-19-00
+        fi
+        configfile ($root)/boot/grub/grub.cfg
+}

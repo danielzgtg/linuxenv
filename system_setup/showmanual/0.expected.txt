@@ -1,0 +1,7 @@
+aircrack-ng
+linux-headers-generic
+linux-image-generic
+linux-tools-generic
+mesa-va-drivers
+radeontop
+supertuxkart

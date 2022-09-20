@@ -1,4 +1,0 @@
-#!/bin/bash
-
-optipng -o7 -zm1-7 -snip -strip all "$@"
-

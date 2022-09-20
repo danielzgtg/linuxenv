@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+cd ~/opt/oathtool
+. venv/bin/activate
+exec venv/bin/oathtool "$@"

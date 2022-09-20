@@ -1,0 +1,2 @@
+#!/bin/dash
+exec sftp -P 2222 home@daniel-desktop2.local

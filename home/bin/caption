@@ -1,0 +1,2 @@
+#!/bin/dash
+exec ~/DanielFolder/prog/linux/ai/deepspeech/caption.sh "$@"
