@@ -14,7 +14,12 @@ if [ ! -f /etc/grub.d.bak/00_header ]; then
 fi
 rm -rf /etc/grub.d
 cp -rT ../system/etc/grub.d /etc/grub.d
-grub-mkfont -s 12 -o /boot/grubfont.pf2 /home/home/opt/JetBrainsMono/ttf/JetBrainsMono-Regular.ttf
+read -rp 'Font size (12)? ' FONT_SIZE
+if [[ ! $FONT_SIZE =~ ^[1-9][0-9]*$ ]]; then
+  echo 'Bad font size number'
+  exit 1
+fi
+grub-mkfont -s "$FONT_SIZE" -o /boot/grubfont.pf2 /home/home/opt/JetBrainsMono/ttf/JetBrainsMono-Regular.ttf
 
 read -rsp 'Enter new password: ' PASS
 echo
