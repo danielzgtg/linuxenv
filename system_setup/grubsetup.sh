@@ -76,3 +76,7 @@ enforce_root /boot/efi my_efi_root 'EFI partition UUID'
 
 echo "
 if [ \"\$my_fail\" == 0 ]; then" >&3
+
+rm -f /boot/grub/grubenv
+update-grub2
+grub-install
