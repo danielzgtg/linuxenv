@@ -1,0 +1,38 @@
+#!/bin/bash
+set -e
+check_ramdisk() {
+  while read -r x; do
+    local INITRD='/boot/initrd.img-'"$x"
+    if [ -f "$INITRD" ]; then
+      echo "$x"
+    else
+      echo 'Missing initrd '"$INITRD" >&2
+    fi
+  done
+}
+
+VERSIONS="$(find /boot -maxdepth 1 | grep vmlinuz- | cut -f2- -d- | linux-version sort --reverse | check_ramdisk)"
+FIRST="$(echo "$VERSIONS" | head -n1)"
+
+if [ -z "$FIRST" ]; then
+  return
+fi
+
+echo "menuentry '$GRUB_DISTRIBUTOR' --unrestricted --class gnu-linux --class gnu --class os --id 'gnulinux-simple' {
+	my_boot quiet $FIRST
+}"
+
+echo "submenu 'Options' --id 'gnulinux-advanced' {"
+
+for x in $VERSIONS; do
+  echo "menuentry '$GRUB_DISTRIBUTOR, $x text' --class gnu-linux --class gnu --class os --id 'gnulinux-$x-advanced' {
+		my_boot text $x
+	}
+"
+  echo "menuentry '$GRUB_DISTRIBUTOR, $x recovery' --class gnu-linux --class gnu --class os --id 'gnulinux-$x-recovery' {
+		my_boot recovery $x
+	}
+"
+done
+
+echo '}'

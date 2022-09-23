@@ -1,0 +1,7 @@
+#!/bin/sh
+echo 'set default='"$GRUB_DEFAULT"
+echo 'set timeout_style='"$GRUB_TIMEOUT_STYLE"
+echo 'set timeout='"$GRUB_TIMEOUT"
+echo 'set my_font='\'"$GRUB_FONT"\'
+echo 'set my_linux_all_cmdline='\'"$GRUB_CMDLINE_LINUX"\'
+echo 'set my_linux_normal_cmdline='\'"$GRUB_CMDLINE_LINUX_DEFAULT"\'

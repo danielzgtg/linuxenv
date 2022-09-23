@@ -1,0 +1,49 @@
+#!/bin/sh
+exec tail -n +3 $0
+export my_linux_all_cmdline
+export my_linux_normal_cmdline
+insmod all_video
+insmod part_gpt
+insmod ext2
+loadfont "$my_font"
+set gfxmode=auto
+insmod gfxterm
+set locale_dir=$prefix/locale
+set lang=en_US
+insmod gettext
+terminal_output gfxterm
+insmod part_gpt
+insmod gzio
+insmod ext2
+insmod fat
+set menu_color_normal=white/black
+set menu_color_highlight=black/light-gray
+set gfxpayload=keep
+set my_fail=0
+
+function my_boot {
+	set my_linux_cmdline='root='"$my_linux_root"' ro '"$my_linux_all_cmdline"' '
+	if [ "$1" = "quiet" ]; then
+		#set my_linux_cmdline="$my_linux_cmdline"'quiet splash '"$my_linux_normal_cmdline"
+		set my_linux_cmdline="$my_linux_cmdline"'text '"$my_linux_normal_cmdline"
+	elif [ "$1" = "text" ]; then
+		set my_linux_cmdline="$my_linux_cmdline"'text '"$my_linux_normal_cmdline"
+	elif [ "$1" = "recovery" ]; then
+		set my_linux_cmdline="$my_linux_cmdline"'recovery nomodeset dis_ucode_ldr'
+	elif [ "$1" = "custom" ]; then
+		set my_linux_cmdline="$3"
+	else
+		echo 'Unknown boot type'
+		return
+	fi
+	if [ "$1" != "quiet" ]; then
+		echo "$my_linux_cmdline"
+	fi
+	linux '/vmlinuz-'"$2" "$my_linux_cmdline"
+	if [ "$1" != "quiet" ]; then
+		echo -n ':'
+		sleep 3
+		echo ')'
+	fi
+	initrd '/initrd.img-'"$2"
+}
