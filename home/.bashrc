@@ -63,7 +63,7 @@ fi
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 #. <(npm completion)
 alias nvm='unalias nvm && . "$NVM_DIR/nvm.sh" && nvm'
-
+export GPG_TTY=`tty`
 git() { if [[ $1 == "pull" ]]; then command echo "Cannot pull!"; else command git "$@"; fi; }
 
 
