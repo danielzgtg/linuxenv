@@ -11,6 +11,7 @@ insmod gfxterm
 set locale_dir=$prefix/locale
 set lang=en_US
 insmod gettext
+keymap "$my_keymap"
 terminal_output gfxterm
 insmod part_gpt
 insmod gzio
@@ -39,7 +40,7 @@ function my_boot {
 	if [ "$1" != "quiet" ]; then
 		echo "$my_linux_cmdline"
 	fi
-	linux '/vmlinuz-'"$2" "$my_linux_cmdline"
+	linux '/vmlinuz-'"$2" $my_linux_cmdline
 	if [ "$1" != "quiet" ]; then
 		echo -n ':'
 		sleep 3
