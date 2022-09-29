@@ -1,9 +1,8 @@
-#	$OpenBSD: sshd_config,v 1.103 2018/04/09 20:41:22 tj Exp $
 
 # This is the sshd server system-wide configuration file.  See
 # sshd_config(5) for more information.
 
-# This sshd was compiled with PATH=/usr/bin:/bin:/usr/sbin:/sbin
+# This sshd was compiled with PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
 
 # The strategy used for options in the default sshd_config shipped with
 # OpenSSH is to specify options with their default value where
@@ -11,8 +10,11 @@
 # default value.
 
 Include /etc/ssh/sshd_config.d/*.conf
-Port 2222
 
+# Port and ListenAddress options are not used when sshd is socket-activated,
+# which is now the default in Ubuntu.  See sshd_config(5) and
+# /usr/share/doc/openssh-server/README.Debian.gz for details.
+#Port 2222
 #AddressFamily any
 #ListenAddress 0.0.0.0
 #ListenAddress ::
@@ -37,8 +39,8 @@ PermitRootLogin no
 #MaxSessions 10
 
 HostKeyAlgorithms ssh-ed25519
+PubKeyAcceptedKeyTypes ssh-ed25519
 PubkeyAuthentication yes
-PubkeyAcceptedKeyTypes ssh-ed25519
 
 # Expect .ssh/authorized_keys2 to be disregarded by default in future.
 #AuthorizedKeysFile	.ssh/authorized_keys .ssh/authorized_keys2
@@ -62,7 +64,7 @@ PermitEmptyPasswords no
 
 # Change to yes to enable challenge-response passwords (beware issues with
 # some PAM modules and threads)
-ChallengeResponseAuthentication no
+KbdInteractiveAuthentication no
 
 # Kerberos options
 #KerberosAuthentication no
@@ -78,13 +80,13 @@ ChallengeResponseAuthentication no
 
 # Set this to 'yes' to enable PAM authentication, account processing,
 # and session processing. If this is enabled, PAM authentication will
-# be allowed through the ChallengeResponseAuthentication and
+# be allowed through the KbdInteractiveAuthentication and
 # PasswordAuthentication.  Depending on your PAM configuration,
-# PAM authentication via ChallengeResponseAuthentication may bypass
+# PAM authentication via KbdInteractiveAuthentication may bypass
 # the setting of "PermitRootLogin without-password".
 # If you just want the PAM account and session checks to run without
 # PAM authentication, then enable this but set PasswordAuthentication
-# and ChallengeResponseAuthentication to 'no'.
+# and KbdInteractiveAuthentication to 'no'.
 UsePAM yes
 
 #AllowAgentForwarding yes
@@ -102,7 +104,7 @@ PrintMotd no
 #ClientAliveInterval 0
 #ClientAliveCountMax 3
 #UseDNS no
-#PidFile /var/run/sshd.pid
+#PidFile /run/sshd.pid
 #MaxStartups 10:30:100
 #PermitTunnel no
 #ChrootDirectory none
