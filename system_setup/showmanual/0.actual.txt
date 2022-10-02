@@ -26,12 +26,14 @@ cpuid
 cryptsetup
 cups
 dconf-editor
+dnsmasq-base
 dolphin
 dos2unix
 dosbox
 draw.io
 eatmydata
 espeak-ng
+ethtool
 extra-cmake-modules
 ffmpeg
 firefox
@@ -100,14 +102,14 @@ libnss-mdns
 libopenblas0-pthread
 libreoffice
 libreoffice-kde5
+libspa-0.2-bluetooth
 libssl-dev
 libudev-dev
 lightdm
 lightdm-gtk-greeter
 linux-base
 linux-firmware
-linux-headers-generic
-linux-image-generic
+linux-generic
 linux-tools-generic
 lm-sensors
 manpages
@@ -134,6 +136,7 @@ p7zip-rar
 packagekit-tools
 partitionmanager
 pavucontrol-qt
+pkg-config
 plasma-discover
 plasma-disks
 plasma-firewall
@@ -143,7 +146,6 @@ plasma-workspace-wayland
 poppler-utils
 powerdevil
 print-manager
-pulseaudio-module-bluetooth
 python3-dev
 python3-pyaudio
 python3-pyqt5.qtwebengine
@@ -168,6 +170,7 @@ steam:i386
 stockfish
 subversion
 supertuxkart
+systemd-resolved
 systemd-timesyncd
 systemsettings
 tcpdump
@@ -191,3 +194,5 @@ wireshark
 xdg-desktop-portal-kde
 xdotool
 xournal
+xxd
+zoom

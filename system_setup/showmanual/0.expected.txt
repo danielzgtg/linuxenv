@@ -1,7 +1,7 @@
 aircrack-ng
-linux-headers-generic
-linux-image-generic
+linux-generic
 linux-tools-generic
 mesa-va-drivers
 radeontop
 supertuxkart
+zoom
