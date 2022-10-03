@@ -1,0 +1,10 @@
+[Unit]
+Description=Warm up pipewire suspendeds using espeak
+After=wireplumber.service
+
+[Service]
+ExecStart=/usr/bin/espeak-ng ''
+Type=oneshot
+
+[Install]
+WantedBy=wireplumber.service
