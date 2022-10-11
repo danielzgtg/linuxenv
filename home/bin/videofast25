@@ -1,0 +1,156 @@
+#!/usr/bin/env python3
+from dataclasses import dataclass
+from typing import NoReturn
+
+import os.path
+import sys
+import subprocess
+
+
+def usage() -> NoReturn:
+    print("Usage: videofast video.mp4")
+    sys.exit(1)
+
+
+@dataclass
+class Probe:
+    path: str
+    """The media file path"""
+    audio: bool
+    """Whether this film is sound"""
+    video_high: bool
+    """Whether Intel IceLake has hardware decoding for this format"""
+    resolution: tuple[int, int] | None
+    """The resolution to rescale to"""
+
+    def ffmpeg_args(self, target: str) -> list[str]:
+        result = ["ffmpeg", "-hide_banner"]
+        result += (
+            "-hwaccel", "vaapi", "-hwaccel_output_format", "vaapi",
+        ) if self.video_high else ("-vaapi_device", "/dev/dri/renderD128")
+        result += "-i", self.path, "-filter_complex"
+        graph = ["[0:v]"]
+        if not self.video_high:
+            graph.append("format=nv12,hwupload,")
+        graph.append("setpts=0.3333333333333333*PTS,scale_vaapi=")
+        if self.resolution:
+            graph.append(f"w={self.resolution[0]}:h={self.resolution[1]}:")
+        graph.append("format=p010[v]")
+        if self.audio:
+            graph.append(";[0:a]atempo=3.0[a]")
+        result += "".join(graph), "-map", "[v]"
+        if self.audio:
+            result += "-map", "[a]"
+        result += "-c:v", "vp9_vaapi", "-profile:v", "2", "-b:v", "300k", "-maxrate:v", "300k"
+        if self.audio:
+            result += "-c:a", "libopus", "-b:a", "48k"
+        result.append(target)
+        return result
+
+
+def probe(path: str) -> Probe:
+    output = subprocess.check_output(
+        ("ffprobe", "-hide_banner", path),
+        stderr=subprocess.STDOUT, universal_newlines=True,
+    )
+    if output.find("Input") < 0:
+        raise ValueError("Expected video input")
+    last_end = 10
+    audio = False
+    video_high: bool | None = None
+    resolution: tuple[int, int] | None = None
+    while (my_start := output.find("\n  Stream", last_end)) >= 0:
+        my_start += 9
+        my_end = output.find(",", my_start)
+        if my_end <= 0:
+            raise ValueError("Stream metadata truncated")
+        if output.find("\n", my_start, my_end) >= 0:
+            raise ValueError("Stream metadata format different")
+        type_separator = output.rfind(":", my_start, my_end)
+        if type_separator <= 0:
+            raise ValueError("Stream metadata type missing")
+        last_end = my_end
+        if output.endswith(" Audio", 0, type_separator):
+            if audio:
+                raise ValueError("Duplicate audio stream")
+            audio = True
+            continue
+        if not output.endswith(" Video", 0, type_separator):
+            continue
+        if video_high is not None:
+            raise ValueError("Duplicate video stream")
+
+        my_end = output.find("), ", last_end)
+        if my_end <= 0:
+            raise ValueError("Video metadata truncated")
+        if output.find("\n", last_end, my_end) >= 0:
+            raise ValueError("Video metadata format different")
+        my_end += 3
+        last_end = my_end
+        my_end = output.find(",", last_end)
+        if my_end <= 0:
+            raise ValueError("Video resolution truncated")
+        if output.find("\n", last_end, my_end) >= 0:
+            raise ValueError("Video resolution format different")
+        my_start = output.find(" ", last_end, my_end)
+        if my_start > 0:
+            my_end = my_start
+        my_start = output.find("x", last_end, my_end)
+        if my_start < 0 or my_start != output.rfind("x", last_end, my_end):
+            raise ValueError("Video resolution corrupt")
+        resolution = int(output[last_end:my_start]), int(output[my_start + 1:my_end])
+        last_end = my_end
+
+        type_separator += 1
+        if output.startswith(" vp9 (", type_separator):
+            video_high = True
+            continue
+        if output.startswith(" av1 (", type_separator):
+            video_high = False
+            continue
+        if not output.startswith(" h264 (", type_separator):
+            raise ValueError("Unknown video codec")
+        type_separator += 7
+        if output.startswith("High) ", type_separator) or output.startswith("Main) ", type_separator):
+            video_high = True
+            continue
+        if output.startswith("Baseline) ", type_separator) \
+                or output.startswith("Constrained Baseline) ", type_separator):
+            video_high = False
+            continue
+        raise ValueError("Unknown h264 level")
+    if video_high is None:
+        raise ValueError("Missing video stream")
+    assert resolution is not None
+    if resolution[0] <= 1920 and resolution[1] <= 1080:
+        resolution = None
+    elif resolution[0] * 1080 > resolution[1] * 1920:
+        resolution = 1920, int(resolution[1] * 1920 / resolution[0])
+    else:
+        resolution = int(resolution[0] * 1080 / resolution[1]), 1080
+    return Probe(path, audio, video_high, resolution)
+
+
+def main() -> NoReturn:
+    path: str
+    try:
+        _, path = sys.argv
+    except ValueError:
+        print("Wrong number of arguments")
+        return usage()
+    if not os.path.isfile(path):
+        print("File missing")
+        usage()
+    base: str
+    try:
+        base, _ = path.rsplit(".", 1)
+    except ValueError:
+        print("No file extension")
+        return usage()
+    probed = probe(path)
+    target = base + ".fast.webm"
+    os.execvp("ffmpeg", probed.ffmpeg_args(target))
+
+
+if __name__ == '__main__':
+    main()
