@@ -111,11 +111,11 @@ def probe(path: str) -> Probe:
         if not output.startswith(" h264 (", type_separator):
             raise ValueError("Unknown video codec")
         type_separator += 7
-        if output.startswith("High) ", type_separator) or output.startswith("Main) ", type_separator):
+        if output.startswith("High)", type_separator) or output.startswith("Main)", type_separator):
             video_high = True
             continue
-        if output.startswith("Baseline) ", type_separator) \
-                or output.startswith("Constrained Baseline) ", type_separator):
+        if output.startswith("Baseline)", type_separator) \
+                or output.startswith("Constrained Baseline)", type_separator):
             video_high = False
             continue
         raise ValueError("Unknown h264 level")
