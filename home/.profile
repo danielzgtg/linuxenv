@@ -17,11 +17,10 @@ export GTK_IM_MODULE=fcitx
 export GTK_USE_PROFILE=1
 export XMODIFIERS=@im=fcitx
 export QT_IM_MODULE=fcitx
-export EGL_PLATFORM=gbm
+export EGL_PLATFORM=wayland
 export SAL_USE_VCLPLUGIN=kde
 export MOZ_USE_XINPUT2=1
-#export GDK_DPI_SCALE=0.5
-#export GDK_SCALE=2
+export MOZ_ENABLE_WAYLAND=1
 export SDL_IM_MODULE=fcitx
 export GLFW_IM_MODULE=ibus # yes, it's fcitx
 

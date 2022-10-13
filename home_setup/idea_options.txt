@@ -41,3 +41,4 @@
 --add-opens=java.base/java.lang.reflect=ALL-UNNAMED
 -XX:+AlwaysPreTouch
 -XX:+UseTransparentHugePages
+-Dsun.java2d.uiScale=2
