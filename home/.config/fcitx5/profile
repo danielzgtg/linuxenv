@@ -1,0 +1,77 @@
+[Groups/0]
+# Group Name
+Name="Group 1"
+# Layout
+Default Layout=us-dvorak
+# Default Input Method
+DefaultIM=keyboard-us-dvorak
+
+[Groups/0/Items/0]
+# Name
+Name=keyboard-us-dvorak
+# Layout
+Layout=
+
+[Groups/1]
+# Group Name
+Name=J
+# Layout
+Default Layout=jp-us
+# Default Input Method
+DefaultIM=mozc
+
+[Groups/1/Items/0]
+# Name
+Name=mozc
+# Layout
+Layout=jp-us
+
+[Groups/2]
+# Group Name
+Name=Z
+# Layout
+Default Layout=us
+# Default Input Method
+DefaultIM=rime
+
+[Groups/2/Items/0]
+# Name
+Name=rime
+# Layout
+Layout=us
+
+[Groups/3]
+# Group Name
+Name=K
+# Layout
+Default Layout=us
+# Default Input Method
+DefaultIM=hangul
+
+[Groups/3/Items/0]
+# Name
+Name=hangul
+# Layout
+Layout=us
+
+[Groups/4]
+# Group Name
+Name=Q
+# Layout
+Default Layout=us
+# Default Input Method
+DefaultIM=keyboard-us
+
+[Groups/4/Items/0]
+# Name
+Name=keyboard-us
+# Layout
+Layout=
+
+[GroupOrder]
+0="Group 1"
+1=Z
+2=J
+3=Q
+4=K
+

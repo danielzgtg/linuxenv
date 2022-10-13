@@ -13,15 +13,17 @@ if [[ $EUID -eq 0 ]]; then
     exit 1
 fi
 
-export GTK_IM_MODULE=ibus
+export GTK_IM_MODULE=fcitx
 export GTK_USE_PROFILE=1
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
+export XMODIFIERS=@im=fcitx
+export QT_IM_MODULE=fcitx
 export EGL_PLATFORM=gbm
 export SAL_USE_VCLPLUGIN=kde
 export MOZ_USE_XINPUT2=1
 #export GDK_DPI_SCALE=0.5
 #export GDK_SCALE=2
+export SDL_IM_MODULE=fcitx
+export GLFW_IM_MODULE=ibus # yes, it's fcitx
 
 export LESSHISTSIZE=0
 export LESSHISTFILE=/dev/null
