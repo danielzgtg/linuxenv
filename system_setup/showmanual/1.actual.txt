@@ -161,6 +161,7 @@ qrenderdoc
 qttools5-dev-tools
 qtvirtualkeyboard-plugin
 rime-data-bopomofo
+rtkit
 screen
 simplescreenrecorder
 smartmontools

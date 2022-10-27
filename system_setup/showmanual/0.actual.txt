@@ -159,6 +159,7 @@ qttools5-dev-tools
 qtvirtualkeyboard-plugin
 radeontop
 rime-data-bopomofo
+rtkit
 screen
 simplescreenrecorder
 smartmontools
