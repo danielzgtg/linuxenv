@@ -41,5 +41,6 @@ tantivy-cli \
 tealdeer \
 tokei \
 uwc \
+wasmtime-cli \
 xargo \
 xsv \
