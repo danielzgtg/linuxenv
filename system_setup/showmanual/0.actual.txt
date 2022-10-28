@@ -23,7 +23,7 @@ cmake-qt-gui
 cmatrix
 conspy
 cpuid
-cryptsetup
+cryptsetup-initramfs
 cups
 dconf-editor
 dnsmasq-base

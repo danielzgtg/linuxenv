@@ -23,7 +23,7 @@ cmatrix
 conspy
 cpuid
 cryptowatch
-cryptsetup
+cryptsetup-initramfs
 cups
 dconf-editor
 dnsmasq-base
