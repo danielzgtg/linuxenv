@@ -1,0 +1,10 @@
+[Unit]
+Description=Warm up kwallet using kwallet-query
+After=plasma-xdg-desktop-portal-kde.service
+
+[Service]
+ExecStart=/usr/bin/kwallet-query -l kdewallet
+Type=oneshot
+
+[Install]
+WantedBy=plasma-xdg-desktop-portal-kde.service
