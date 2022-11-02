@@ -46,6 +46,7 @@ fonts-noto-ui-core
 fonts-noto-ui-extra
 fonts-roboto
 friendly-recovery
+fscrypt
 gammaray
 geoip-database
 gimp
@@ -109,6 +110,7 @@ lightdm-gtk-greeter
 linux-base
 linux-firmware
 lm-sensors
+lsp-plugins
 manpages
 manpages-dev
 meld

@@ -47,6 +47,7 @@ fonts-noto-ui-core
 fonts-noto-ui-extra
 fonts-roboto
 friendly-recovery
+fscrypt
 gammaray
 geoip-database
 gimp
@@ -112,6 +113,7 @@ linux-firmware
 linux-generic
 linux-tools-generic
 lm-sensors
+lsp-plugins
 manpages
 manpages-dev
 meld
