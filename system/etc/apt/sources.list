@@ -1,0 +1,8 @@
+deb https://gpl.savoirfairelinux.net/pub/mirrors/ubuntu/ kinetic main restricted multiverse universe
+# deb-src https://gpl.savoirfairelinux.net/pub/mirrors/ubuntu/ impish main restricted multiverse universe #Added by software-properties
+deb https://gpl.savoirfairelinux.net/pub/mirrors/ubuntu/ kinetic-updates main restricted multiverse universe
+# deb-src https://gpl.savoirfairelinux.net/pub/mirrors/ubuntu/ impish-updates main restricted multiverse universe #Added by software-properties
+deb https://gpl.savoirfairelinux.net/pub/mirrors/ubuntu/ kinetic-backports main restricted universe multiverse
+# deb-src https://gpl.savoirfairelinux.net/pub/mirrors/ubuntu/ impish-backports main restricted universe multiverse #Added by software-properties
+deb https://gpl.savoirfairelinux.net/pub/mirrors/ubuntu/ kinetic-security main restricted multiverse universe
+# deb-src https://gpl.savoirfairelinux.net/pub/mirrors/ubuntu/ impish-security main restricted multiverse universe #Added by software-properties
