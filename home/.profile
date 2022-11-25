@@ -23,6 +23,7 @@ export MOZ_USE_XINPUT2=1
 export MOZ_ENABLE_WAYLAND=1
 export SDL_IM_MODULE=fcitx
 export GLFW_IM_MODULE=ibus # yes, it's fcitx
+export KWIN_FORCE_SW_CURSOR=1
 
 export LESSHISTSIZE=0
 export LESSHISTFILE=/dev/null
