@@ -190,5 +190,5 @@ whoopsie
 wireshark
 xdg-desktop-portal-kde
 xdotool
-xournal
+xournalpp
 xxd
