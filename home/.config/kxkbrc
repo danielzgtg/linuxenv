@@ -1,0 +1,17 @@
+[$Version]
+update_info=kxkb_variants.upd:split-variants,kxkb.upd:remove-empty-lists,kxkb.upd:add-back-resetoptions
+
+[Layout]
+DisplayNames=,
+LayoutList=us,jp
+LayoutLoopCount=-1
+Model=pc101
+Options=lv3:ralt_switch_multikey
+ResetOldOptions=true
+ShowFlag=true
+ShowLabel=true
+ShowLayoutIndicator=true
+ShowSingle=true
+SwitchMode=Global
+Use=true
+VariantList=dvorak,us
