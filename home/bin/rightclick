@@ -1,0 +1,5 @@
+#!/bin/dash
+# While I use Wayland where Xdotool doesn't work anymore,
+# this script serves as a memory for that whole year when I
+# had to open terminal to work around a broken mouse button
+exec xdotool click 3
