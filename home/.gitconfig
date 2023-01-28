@@ -15,7 +15,7 @@
 [color]
 	ui = auto
 [commit]
-	gpgSign = true 
+	gpgsign = true 
 [core]
 	excludesfile = ~/.gitignore
 	pager = delta
