@@ -3,10 +3,10 @@ set -e
 rm -rf venv lib
 mkdir -p lib
 pushd lib
-VERSION='1.2022.6'
+VERSION='1.2023.0'
 NAME='plantuml-'"$VERSION"'.jar'
 wget 'https://github.com/plantuml/plantuml/releases/download/v'"$VERSION"/"$NAME"
-if ! sha256sum "$NAME" | grep -q 204def7102790f55d4adad7756b9c1c19cefcb16e7f7fbc056abb40f8cbe4eae; then
+if ! sha256sum "$NAME" | grep -q 0404edcf0af28e5b409bc17aa59ad8b05051f47347377749c46c8018135d0dec; then
   echo 'Hash Error'
   #exit 1
 fi
