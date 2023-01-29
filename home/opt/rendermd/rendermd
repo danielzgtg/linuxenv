@@ -14,11 +14,13 @@ if [ -e "$TMP_HTML" ]; then
   echo 'Temporary file already exists'
   exit 1
 fi
-echo '<!doctype html><html><head><meta charset="UTF-8"><title>'"$1"'</title><style>img{max-height:calc(100vh - 10em);max-width:calc(100vw - 5em);}table{border-collapse:collapse;}th,td{border:1px solid #888;}' > "$TMP_HTML"
-cat ~/opt/rendermd/lib/styles.css >> "$TMP_HTML"
-echo '</style></head><body>' >> "$TMP_HTML"
 . ~/opt/rendermd/venv/bin/activate
-markdown_py -x plantuml_markdown -c ~/opt/rendermd/plantuml_markdown.yml -x markdown_checklist.extension -x fenced_code -x tables -x codehilite "$1" >> "$TMP_HTML"
-echo '</body></html>' >> "$TMP_HTML" 
-google-chrome-stable --headless --print-to-pdf-no-header --print-to-pdf="$OUT_PDF" "$TMP_HTML" > /dev/null
+{
+echo '<!doctype html><html><head><meta charset="UTF-8"><title>'"$1"'</title><style>img{max-height:calc(100vh - 10em);max-width:calc(100vw - 5em);}table{border-collapse:collapse;}th,td{border:1px solid #888;}'
+cat ~/opt/rendermd/lib/styles.css
+echo '</style></head><body>'
+markdown_py -x plantuml_markdown -c ~/opt/rendermd/plantuml_markdown.yml -x markdown_checklist.extension -x fenced_code -x tables -x codehilite "$1"
+echo '</body></html>'
+} > "$TMP_HTML"
+google-chrome-stable --headless --print-to-pdf-no-header --print-to-pdf="$OUT_PDF" "$TMP_HTML" > /dev/null 2>&1
 exec unlink "$TMP_HTML"
