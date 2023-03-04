@@ -1,4 +1,5 @@
 aircrack-ng
+apparmor
 apport-kde
 aptitude
 audacity
