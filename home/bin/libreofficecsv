@@ -1,2 +1,2 @@
 #!/bin/dash
-exec libreoffice --headless --convert-to csv "$@"
+exec libreoffice --safe-mode --headless --convert-to csv "$@"

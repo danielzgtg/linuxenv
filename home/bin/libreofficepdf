@@ -1,2 +1,2 @@
 #!/bin/dash
-exec libreoffice --headless --convert-to pdf "$@"
+exec libreoffice --safe-mode --headless --convert-to pdf "$@"
