@@ -89,8 +89,6 @@
   <policy domain="delegate" rights="none" pattern="HTTP" />
   <!-- in order to avoid to get image with password text -->
   <policy domain="path" rights="none" pattern="@*"/>
-  <!-- forbid access to /etc mitigate again CVE-2022-44267 and CVE-2022-44268 -->
-  <policy domain="path" rights="none" pattern="/etc/*" />
   <!-- disable ghostscript format types -->
   <policy domain="coder" rights="none" pattern="PS" />
   <policy domain="coder" rights="none" pattern="PS2" />
