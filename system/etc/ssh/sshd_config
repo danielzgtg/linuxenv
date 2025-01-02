@@ -11,12 +11,18 @@
 
 Include /etc/ssh/sshd_config.d/*.conf
 
-# Port and ListenAddress options are not used when sshd is socket-activated,
-# which is now the default in Ubuntu.  See sshd_config(5) and
-# /usr/share/doc/openssh-server/README.Debian.gz for details.
-#Port 2222
-#AddressFamily any
-#ListenAddress 0.0.0.0
+# When systemd socket activation is used (the default), the socket
+# configuration must be re-generated after changing Port, AddressFamily, or
+# ListenAddress.
+#
+# For changes to take effect, run:
+#
+#   systemctl daemon-reload
+#   systemctl restart ssh.socket
+#
+Port 2222
+AddressFamily inet
+ListenAddress 0.0.0.0
 #ListenAddress ::
 
 #HostKey /etc/ssh/ssh_host_rsa_key
@@ -43,7 +49,7 @@ PubKeyAcceptedKeyTypes ssh-ed25519
 PubkeyAuthentication yes
 
 # Expect .ssh/authorized_keys2 to be disregarded by default in future.
-#AuthorizedKeysFile	.ssh/authorized_keys .ssh/authorized_keys2
+#AuthorizedKeysFile     .ssh/authorized_keys .ssh/authorized_keys2
 
 #AuthorizedPrincipalsFile none
 
@@ -83,7 +89,7 @@ KbdInteractiveAuthentication no
 # be allowed through the KbdInteractiveAuthentication and
 # PasswordAuthentication.  Depending on your PAM configuration,
 # PAM authentication via KbdInteractiveAuthentication may bypass
-# the setting of "PermitRootLogin without-password".
+# the setting of "PermitRootLogin prohibit-password".
 # If you just want the PAM account and session checks to run without
 # PAM authentication, then enable this but set PasswordAuthentication
 # and KbdInteractiveAuthentication to 'no'.
@@ -117,11 +123,11 @@ PrintMotd no
 AcceptEnv LANG LC_*
 
 # override default of no subsystems
-Subsystem	sftp	/usr/lib/openssh/sftp-server
+Subsystem       sftp    /usr/lib/openssh/sftp-server
 
 # Example of overriding settings on a per-user basis
 #Match User anoncvs
-#	X11Forwarding no
-#	AllowTcpForwarding no
-#	PermitTTY no
-#	ForceCommand cvs server
+#       X11Forwarding no
+#       AllowTcpForwarding no
+#       PermitTTY no
+#       ForceCommand cvs server
