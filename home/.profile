@@ -28,6 +28,7 @@ export KWIN_FORCE_SW_CURSOR=1
 export LESSHISTSIZE=0
 export LESSHISTFILE=/dev/null
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export POWERSHELL_UPDATECHECK=Off
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 export ANDROID_SDK_ROOT="$HOME/Android/Sdk/"
 export NODE_REPL_HISTORY=""
