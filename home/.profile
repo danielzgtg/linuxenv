@@ -18,7 +18,7 @@ export GTK_USE_PROFILE=1
 export XMODIFIERS=@im=fcitx
 export QT_IM_MODULE=fcitx
 export EGL_PLATFORM=wayland
-export SAL_USE_VCLPLUGIN=kde
+export SAL_USE_VCLPLUGIN=kf6
 export MOZ_USE_XINPUT2=1
 export MOZ_ENABLE_WAYLAND=1
 export SDL_IM_MODULE=fcitx
