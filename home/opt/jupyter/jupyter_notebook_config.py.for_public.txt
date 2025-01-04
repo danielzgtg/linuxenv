@@ -1,0 +1,14 @@
+# ~/.jupyter/jupyter_notebook_config.py
+# Must remember to use namespaces when using this
+c = get_config()
+c.PasswordIdentityProvider.allow_password_change = False
+c.ServerApp.allow_remote_access = True
+c.ServerApp.ip = '*'
+c.ServerApp.max_body_size = 1048576
+c.ServerApp.open_browser = False
+# CSI4106
+c.PasswordIdentityProvider.hashed_password = 'argon2:$argon2id$v=19$m=10240,t=10,p=8$PobIWfhY7t0sI/wwClLKxg$xMISTQ55NmeaXcmUpDbDCnL0Z5pWTGmVGePaydoS6D0'
+c.PasswordIdentityProvider.password_required = True
+c.ServerApp.port = 8888
+c.ServerApp.quit_button = False
+c.ServerApp.terminals_enabled = False

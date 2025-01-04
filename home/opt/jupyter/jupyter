@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+. ~/opt/jupyter/venv/bin/activate
+exec ~/opt/jupyter/venv/bin/jupyter "$@"
