@@ -18,7 +18,7 @@ cw \
 deno \
 du-dust \
 evcxr_repl \
-exa \
+eza \
 fd-find \
 flamegraph \
 git-delta \
