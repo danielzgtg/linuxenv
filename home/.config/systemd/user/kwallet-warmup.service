@@ -7,4 +7,4 @@ ExecStart=/usr/bin/kwallet-query -l kdewallet
 Type=oneshot
 
 [Install]
-WantedBy=plasma-xdg-desktop-portal-kde.service
+WantedBy=plasma-plasmashell.service
