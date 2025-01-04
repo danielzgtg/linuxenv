@@ -37,8 +37,7 @@ export NVM_DIR="$HOME/.nvm"
 export GOPATH="$HOME/.go"
 export CCACHE_DIR="$HOME/.ccache"
 export PATH="$HOME/bin:$HOME/.cargo/bin:$HOME/kde/src/kdesrc-build:$HOME/.cabal/bin:$HOME/.ghcup/bin:$HOME/.local/bin:$PATH"
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export MANROFFOPT=-c
+export MANPAGER="sh -c 'sed -e \"s/\\x1B\[[0-9;]*m\|.\\x08//g\" | bat -pl man'"
 
 #lesspipe
 export LESSOPEN="| /usr/bin/lesspipe %s";
