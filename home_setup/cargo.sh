@@ -1,5 +1,5 @@
 #!/bin/dash
-exec cargo install \
+cargo install \
 bacon \
 bandwhich \
 bat \
@@ -14,7 +14,6 @@ cargo-deny \
 cargo-edit \
 cargo-expand \
 cargo-outdated \
-cargo-profiler \
 cargo-udeps \
 cargo-update \
 choose \
@@ -23,6 +22,7 @@ cw \
 deno \
 difftastic \
 du-dust \
+dysk \
 evcxr_repl \
 eza \
 fd-find \
@@ -39,16 +39,15 @@ jql \
 just \
 legdur \
 lemmeknow \
-lfs \
 mdbook \
 mdcat \
 oxipng \
 pipr \
+polars-cli \
 procs \
 rargs \
 rav1e \
 ripgrep \
-rural \
 sd \
 skim \
 starship \
@@ -58,6 +57,6 @@ tokei \
 trippy \
 uwc \
 wasmtime-cli \
-xargo \
 xh \
-xsv \
+
+cargo install qsv -F all_features
