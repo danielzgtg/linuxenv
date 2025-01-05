@@ -23,6 +23,7 @@ export MOZ_USE_XINPUT2=1
 export MOZ_ENABLE_WAYLAND=1
 export SDL_IM_MODULE=fcitx
 export GLFW_IM_MODULE=ibus # yes, it's fcitx
+export HSA_OVERRIDE_GFX_VERSION=10.3.0
 # Celeste and Terraria
 export FNA_KEYBOARD_USE_SCANCODES=1
 
