@@ -22,6 +22,7 @@ export SAL_USE_VCLPLUGIN=kf6
 export MOZ_USE_XINPUT2=1
 export MOZ_ENABLE_WAYLAND=1
 export SDL_IM_MODULE=fcitx
+export SDL_VIDEODRIVER=wayland
 export GLFW_IM_MODULE=ibus # yes, it's fcitx
 export HSA_OVERRIDE_GFX_VERSION=10.3.0
 # Celeste and Terraria
