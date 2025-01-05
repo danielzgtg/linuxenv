@@ -1,44 +1,11 @@
--Xss2m
--Xms2048m
--Xmx2048m
--XX:NewSize=128m
--XX:MaxNewSize=128m
--XX:SoftRefLRUPolicyMSPerMB=50
--ea
--Djava.net.preferIPv4Stack=true
--Djdk.http.auth.tunneling.disabledSchemes=""
--XX:+HeapDumpOnOutOfMemoryError
--XX:-OmitStackTraceInFastThrow
--Dsun.tools.attach.tmp.only=true
--Dide.no.platform.update=true
--XX:CICompilerCount=2
--Dkotlinx.coroutines.debug=off
--Djdk.module.illegalAccess.silent=true
---illegal-access=warn
--Djdk.attach.allowAttachSelf=true
--Dsun.io.useCanonCaches=false
--XX:ReservedCodeCacheSize=512m
--XX:+UseG1GC
--XX:+IgnoreUnrecognizedVMOptions
--Dtoolbox.notification.token=l6_MKDWnJBlu8RUsZ1YepePDKb092Wqae63YMfyvWAY=
--Dtoolbox.notification.portFile=/home/home/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.6461.75.vmoptions.port
--Didea.plugins.path=/home/home/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.6461.75.plugins
---add-opens=java.desktop/javax.swing=ALL-UNNAMED
---add-opens=java.desktop/javax.swing.text.html=ALL-UNNAMED
---add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED
---add-opens=java.desktop/java.awt=ALL-UNNAMED
---add-opens=java.desktop/java.awt.event=ALL-UNNAMED
---add-opens=java.desktop/java.awt.peer=ALL-UNNAMED
---add-opens=java.desktop/sun.awt=ALL-UNNAMED
---add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED
---add-opens=java.desktop/sun.awt.datatransfer=ALL-UNNAMED
---add-opens=java.desktop/sun.awt.image=ALL-UNNAMED
---add-opens=java.desktop/sun.font=ALL-UNNAMED
---add-opens=java.desktop/sun.swing=ALL-UNNAMED
---add-opens=java.base/java.lang=ALL-UNNAMED
---add-opens=java.base/java.util=ALL-UNNAMED
---add-opens=java.base/java.nio=ALL-UNNAMED
---add-opens=java.base/java.lang.reflect=ALL-UNNAMED
+# Setup JDK
+Create a `productid.jdk` containing `/home/home/opt/jbr-graalvm/current` corresponding to each `~/.config/JetBrains/Product.Version/productid.key`
+# Setup remote dev
+Run `bin/remote-dev-server.sh registerBackendLocationForGateway` for each IDE under `~/.local/share/JetBrains/Toolbox/apps`
+# Add the following into each .vmoptions
+-Xms4096m
+-Xmx4096m
 -XX:+AlwaysPreTouch
 -XX:+UseTransparentHugePages
 -Dsun.java2d.uiScale=2
+-Dide.browser.jcef.skip_module_check=true
