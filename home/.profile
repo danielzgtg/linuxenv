@@ -27,6 +27,7 @@ export GLFW_IM_MODULE=ibus # yes, it's fcitx
 export HSA_OVERRIDE_GFX_VERSION=10.3.0
 # Celeste and Terraria
 export FNA_KEYBOARD_USE_SCANCODES=1
+export WINEFSYNC=1
 
 export LESSHISTSIZE=0
 export LESSHISTFILE=/dev/null
