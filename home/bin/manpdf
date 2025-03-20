@@ -1,0 +1,36 @@
+#!/bin/bash
+set -e
+
+usage() {
+  echo 'Usage: manpdf [section] name'
+  exit 1
+}
+
+if [ $# -eq 0 ]; then
+  usage
+fi
+
+section=
+[ $# -eq 2 ] && section="$1" && shift || :
+
+name="$1"
+shift
+
+if ! [[ $name =~ [a-z]+ ]]; then
+  echo 'name must be lowercase alphabetical'
+  usage
+fi
+
+if [ $# -ne 0 ]; then
+  usage
+fi
+
+cd "${XDG_RUNTIME_DIR:-/run/user/$UID}"
+declare -a args=('-Tpdf' '--nh')
+[ -n "$section" ] && args+=("$section") || :
+args+=("$name")
+
+target="$name.$section.pdf"
+set +e
+man "${args[@]}" > "$target" && okular "$target"
+unlink "$target"
