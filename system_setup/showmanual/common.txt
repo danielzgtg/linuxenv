@@ -37,6 +37,7 @@ ethtool
 extra-cmake-modules
 ffmpeg
 firefox
+fonts-jetbrains-mono
 fonts-lato
 fonts-noto-cjk-extra
 fonts-noto-color-emoji
