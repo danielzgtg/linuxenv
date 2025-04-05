@@ -12,6 +12,10 @@ fi
 
 section=
 [ $# -eq 2 ] && section="$1" && shift || :
+[ -z "$section" ] || [[ $section =~ ^[1-8]$ ]] || {
+  echo 'Section musnt be a number. Use hyphens for subcommands'
+  exit 1
+}
 
 name="$1"
 shift
