@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+. ~/opt/mitmproxy/venv/bin/activate
+exec ~/opt/mitmproxy/venv/bin/mitmdump "$@"
