@@ -1,0 +1,7 @@
+[Basic Settings]
+Indexing-Enabled=false
+
+[General]
+dbVersion=2
+exclude filters=*
+exclude filters version=9
