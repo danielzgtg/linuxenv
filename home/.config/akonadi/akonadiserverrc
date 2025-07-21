@@ -1,5 +1,11 @@
-[Debug]
-Tracer=null
-
 [%General]
-Driver=QSQLITE
+Driver=QPSQL
+
+[QPSQL]
+Host=/run/user/1000/akonadi
+InitDbPath=/usr/lib/postgresql/17/bin/initdb
+Name=akonadi
+Options=
+PgData=/home/home/.local/share/akonadi/db_data
+ServerPath=/usr/lib/postgresql/17/bin/pg_ctl
+StartServer=true
