@@ -9,7 +9,7 @@ GRUB_TIMEOUT=2
 GRUB_DISTRIBUTOR=`( . /etc/os-release && echo ${NAME} )`
 GRUB_CMDLINE_LINUX_DEFAULT="fbcon=font:TER16x32"
 GRUB_CMDLINE_LINUX=""
-GRUB_FONT="/boot/grubfont.pf2"
+GRUB_FONT="/grubfont.pf2" # TODO modify scripts to accept absolute path
 GRUB_ENABLE_CRYPTODISK=y
 GRUB_DISABLE_OS_PROBER=true
 
