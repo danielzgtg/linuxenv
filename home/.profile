@@ -41,7 +41,7 @@ export NVM_DIR="$HOME/.nvm"
 . "$HOME/opt/nvmstub"
 export GOPATH="$HOME/.go"
 export CCACHE_DIR="$HOME/.ccache"
-export PATH="$HOME/bin:$HOME/.cargo/bin:$HOME/kde/src/kdesrc-build:$HOME/.cabal/bin:$HOME/.ghcup/bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.cargo/bin:$HOME/kde/src/kdesrc-build:$HOME/.cabal/bin:$HOME/.ghcup/bin:$HOME/.local/bin:$HOME/.dotnet/tools:$PATH"
 export MANPAGER="sh -c 'sed -e \"s/\\x1B\[[0-9;]*m\|.\\x08//g\" | bat -pl man'"
 export DEBUGINFOD_URLS=https://debuginfod.ubuntu.com
 export NEXT_TELEMETRY_DISABLED=1 # Nextjs.org
