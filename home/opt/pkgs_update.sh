@@ -16,7 +16,9 @@ echo node > alias/default
 gitcleanup
 . ./nvm.sh
 nvm install node --reinstall-packages-from=node
-echo 'export PATH="$NVM_DIR/versions/node/'"$(nvm current)"'/bin:$PATH"' > ~/opt/nvmstub
+current="$(nvm current)"
+echo 'export PATH="$NVM_DIR/versions/node/'"$current"'/bin:$PATH"
+export MANPATH="$NVM_DIR/versions/node/'"$current"'/share/man:/usr/share/man"' > ~/opt/nvmstub
 rm -rf alias
 mkdir alias
 echo node > alias/default
