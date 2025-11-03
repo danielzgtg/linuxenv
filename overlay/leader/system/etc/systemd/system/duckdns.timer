@@ -1,0 +1,9 @@
+[Unit]
+Description=Quarter-hour DuckDNS push
+
+[Timer]
+OnUnitInactiveSec=15m
+RandomizedDelaySec=5m
+
+[Install]
+WantedBy=timers.target
