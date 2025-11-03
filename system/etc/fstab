@@ -1,25 +1,9 @@
-# /etc/fstab: static file system information.
-#
-# Use 'blkid' to print the universally unique identifier for a
-# device; this may be used with UUID= as a more robust way to name devices
-# that works even if disks are added and removed. See fstab(5).
-#
-# <file system> <mount point>   <type>  <options>       <dump>  <pass>
-# /
-UUID=??? /               ext4    ro,nodev,noatime,errors=remount-ro 0       1
-# /boot
-UUID=??? /boot           ext4    ro,nodev,nosuid,noexec,noatime,errors=remount-ro        0       2
-# /boot/efi
-UUID=???  /boot/efi       vfat    ro,noatime,umask=0077      0       1
-# /home Main userdata
-UUID=??? /home           ext4    nodev,nosuid,noatime,errors=remount-ro        0       2
-# /tmp
-UUID=??? /tmp            ext4    nodev,nosuid,noatime,errors=remount-ro        0       2
-# /var
-UUID=??? /var            ext4    nodev,nosuid,noatime,errors=remount-ro        0       2
-# swap
-UUID=??? none            swap    sw              0       0
-# bindmount /srv to /home/srv
-/home/srv                                 /srv            none    nodev,nosuid,noexec,noatime,bind   0       0
-# /media with readonly root
-tmpfs /media             tmpfs    nodev,nosuid,noexec,noatime,size=5120k,mode=755      0       0
+/dev/mapper/ssdcrypt / ext4 errors=remount-ro,max_dir_size_kb=4096,min_batch_time=15000,noatime,nodev,nombcache,ro 0 1
+UUID=??? /boot ext4 errors=remount-ro,max_dir_size_kb=1024,min_batch_time=15000,noatime,nodev,noexec,nombcache,nosuid,ro 0 2
+UUID=??? /boot/efi vfat dmask=0007,fmask=0006,noatime,nodev,noexec,nosuid,ro 0 2
+/dev/mapper/vghdd-home /home ext4 errors=remount-ro,max_dir_size_kb=4096,min_batch_time=15000,noatime,nodev,nombcache,nosuid 0 2
+/dev/mapper/vghdd-tmp /tmp ext4 errors=remount-ro,max_dir_size_kb=4096,min_batch_time=15000,noatime,nodev,nombcache,nosuid 0 2
+/dev/mapper/vghdd-var /var ext4 errors=remount-ro,max_dir_size_kb=4096,min_batch_time=15000,noatime,nodev,nombcache,nosuid 0 2
+#UUID=??? none swap sw 0 0
+#/home/srv /srv none bind,noatime,nodev,noexec,nosuid 0 0
+tmpfs /media tmpfs mode=755,noatime,nodev,noexec,nosuid,size=5120k 0 0

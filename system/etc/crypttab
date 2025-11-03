@@ -1,0 +1,2 @@
+hddcrypt UUID=??? none discard,luks,no-read-workqueue,no-write-workqueue,same-cpu-crypt,submit-from-crypt-cpus
+nvmecrypt UUID=??? none discard,luks,no-read-workqueue,no-write-workqueue,same-cpu-crypt,submit-from-crypt-cpus
