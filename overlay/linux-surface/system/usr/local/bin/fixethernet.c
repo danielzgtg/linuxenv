@@ -8,7 +8,9 @@
 #define target "0000:00:0d.0\n"
 #define target_sz (sizeof(target)-1)
 void main() {
-	setuid(0);
+	if (setuid(0)) {
+		puts("proceeding without setuid");
+	}
 	//execl("/usr/sbin/uhubctl", "uhubctl", "-a", "2", "-p", "4", "-l", "2-1", (char *) NULL);
 	char hostname[HOST_NAME_MAX];
 	if (gethostname(hostname, HOST_NAME_MAX)) abort();

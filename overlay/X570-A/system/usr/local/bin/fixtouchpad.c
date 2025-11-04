@@ -9,7 +9,9 @@
 #define parent "0000:21:08.0"
 
 void main() {
-	setuid(0);
+	if (setuid(0)) {
+		puts("proceeding without setuid");
+	}
 	char hostname[HOST_NAME_MAX];
 	if (gethostname(hostname, HOST_NAME_MAX)) abort();
 	if (strcmp(hostname, "daniel-desktop3")) {
@@ -19,9 +21,15 @@ void main() {
 	// Rebinding usb1 via the USB subsystem doesn't work
 	// Need to restart the entire USB controller via PCI
 	puts("remove");
-	if (chdir("/sys/bus/pci/devices/" target)) abort();
-	int fd = open("remove", O_WRONLY);
-	if (write(fd, "1\n", 2) != 2) abort();
+	int fd;
+	if (chdir("/sys/bus/pci/devices/" target)) {
+		puts("missing");
+	} else {
+		fd = open("remove", O_WRONLY);
+		if (write(fd, "1\n", 2) != 2) abort();
+	}
+	puts("sleep");
+	sleep(1);
 	puts("rescan");
 	if (chdir("/sys/bus/pci/devices/" parent)) abort();
 	fd = open("rescan", O_WRONLY);
