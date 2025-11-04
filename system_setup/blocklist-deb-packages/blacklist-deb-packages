@@ -1,0 +1,9 @@
+Section: misc
+Priority: optional
+Standards-Version: 3.9.2
+
+Package: blacklist-deb-packages
+Provides: ibus, snapd
+Conflicts: ibus, snapd
+Replaces: ibus, snapd
+Description: dummy package to prevent the installation of unwanted packages https://unix.stackexchange.com/a/705250/524752
