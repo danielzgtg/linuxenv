@@ -30,8 +30,6 @@ export FNA_KEYBOARD_USE_SCANCODES=1
 export WINEFSYNC=1
 export REMOTE_DEV_SERVER_USE_SELF_CONTAINED_LIBS=0
 
-export LESSHISTSIZE=0
-export LESSHISTFILE=/dev/null
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export POWERSHELL_UPDATECHECK=Off
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
@@ -45,10 +43,6 @@ export PATH="$HOME/bin:$HOME/.cargo/bin:$HOME/kde/src/kdesrc-build:$HOME/.cabal/
 export MANPAGER="sh -c 'sed -e \"s/\\x1B\[[0-9;]*m\|.\\x08//g\" | bat -pl man'"
 export DEBUGINFOD_URLS=https://debuginfod.ubuntu.com
 export NEXT_TELEMETRY_DISABLED=1 # Nextjs.org
-
-#lesspipe
-export LESSOPEN="| /usr/bin/lesspipe %s";
-export LESSCLOSE="/usr/bin/lesspipe %s %s";
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then

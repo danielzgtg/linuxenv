@@ -1,0 +1,2 @@
+#!/bin/dash
+LESSCLOSE='/usr/bin/lesspipe %s %s' LESSHISTFILE=/dev/null  LESSHISTSIZE=0 LESSOPEN='| /usr/bin/lesspipe %s' exec /usr/bin/less "$@"
