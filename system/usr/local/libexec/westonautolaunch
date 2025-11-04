@@ -1,0 +1,5 @@
+#!/bin/dash
+if systemctl --user show-environment | grep -q DISPLAY; then
+  exit
+fi
+systemctl --user import-environment DISPLAY WAYLAND_DISPLAY
