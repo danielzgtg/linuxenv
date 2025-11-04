@@ -1,0 +1,6 @@
+#!/bin/dash
+# Inspired by https://stackoverflow.com/a/77564644/10477326
+if [ -n "$WAYLAND_DISPLAY" ]; then
+  exec pinentry-qt "$@"
+fi
+exec pinentry-curses "$@"
