@@ -5,6 +5,5 @@ UUID=??? /boot/efi vfat dmask=0007,fmask=0006,noatime,nodev,noexec,nosuid,ro 0 2
 /dev/mapper/vghdd-tmp /tmp ext4 errors=remount-ro,max_dir_size_kb=4096,min_batch_time=15000,noatime,nodev,nombcache,nosuid 0 2
 /dev/mapper/vghdd-var /var ext4 errors=remount-ro,max_dir_size_kb=4096,min_batch_time=15000,noatime,nodev,nombcache,nosuid 0 2
 #UUID=??? none swap sw 0 0
-#/home/srv /srv none bind,noatime,nodev,noexec,nosuid 0 0
 tmpfs /media tmpfs mode=755,noatime,nodev,noexec,nosuid,size=5120k 0 0
 tmpfs /var/lib/gdm3 tmpfs nodev,nosuid,noexec,noatime,nr_blocks=100,nr_inodes=100,mode=0 0 0
