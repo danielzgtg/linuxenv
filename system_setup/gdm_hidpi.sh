@@ -1,2 +1,3 @@
 #!/bin/dash
-exec runuser -u gdm -- dbus-launch --exit-with-session gsettings set org.gnome.desktop.interface scaling-factor 2
+# https://askubuntu.com/a/1126769/1004020
+exec glib-compile-schemas /usr/share/glib-2.0/schemas

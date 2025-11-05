@@ -7,8 +7,8 @@ GRUB_DEFAULT=0
 GRUB_TIMEOUT_STYLE=hidden
 GRUB_TIMEOUT=2
 GRUB_DISTRIBUTOR=`( . /etc/os-release && echo ${NAME} )`
-GRUB_CMDLINE_LINUX_DEFAULT="fbcon=font:TER16x32 quiet splash"
-GRUB_CMDLINE_LINUX="rootflags=nombcache"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+GRUB_CMDLINE_LINUX="fbcon=font:TER16x32 rootflags=nombcache"
 GRUB_FONT="/grubfont.pf2" # TODO modify scripts to accept absolute path
 GRUB_ENABLE_CRYPTODISK=y
 GRUB_DISABLE_OS_PROBER=true
