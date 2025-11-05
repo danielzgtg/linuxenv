@@ -2,7 +2,7 @@
 set -e
 # Encrypts and wraps the token to prevent newline is removed
 
-if [ "$#" -ne 0 -or "$EUID" -ne 0 ]; then
+if [ "$#" -ne 0 -o "$EUID" -ne 0 ]; then
   echo 'Usage: sudo ./set_duckdns_token.sh'
   exit 1
   usage
