@@ -1,0 +1,5 @@
+Types: deb
+URIs: https://gpl.savoirfairelinux.net/pub/mirrors/ubuntu/
+Suites: questing questing-updates questing-security questing-backports
+Components: main restricted universe multiverse
+Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
