@@ -93,7 +93,7 @@ Pin-Priority: -1
 
 ## Workaround to match specific PPAs from ppa.launchpadcontent.net
 Package: *
-Pin: origin /^[^gp]|^g[^p]|^gp[^l]|^gpl[^\.]|^gpl\.[^s]|^gpl\.s[^a]|^gpl\.sa[^v]|^gpl\.sav[^o]|^gpl\.savo[^i]|^gpl\.savoi[^r]|^gpl\.savoir[^f]|^gpl\.savoirf[^a]|^gpl\.savoirfa[^i]|^gpl\.savoirfai[^r]|^gpl\.savoirfair[^e]|^gpl\.savoirfaire[^l]|^gpl\.savoirfairel[^i]|^gpl\.savoirfaireli[^n]|^gpl\.savoirfairelin[^u]|^gpl\.savoirfairelinu[^x]|^gpl\.savoirfairelinux[^\.]|^gpl\.savoirfairelinux\.[^n]|^gpl\.savoirfairelinux\.n[^e]|^gpl\.savoirfairelinux\.ne[^t]|^p[^p]|^pp[^a]|^ppa[^\.]|^ppa\.[^l]|^ppa\.l[^a]|^ppa\.la[^u]|^ppa\.lau[^n]|^ppa\.laun[^c]|^ppa\.launc[^h]|^ppa\.launch[^p]|^ppa\.launchp[^a]|^ppa\.launchpa[^d]|^ppa\.launchpad[^c]|^ppa\.launchpadc[^o]|^ppa\.launchpadco[^n]|^ppa\.launchpadcon[^t]|^ppa\.launchpadcont[^e]|^ppa\.launchpadconte[^n]|^ppa\.launchpadconten[^t]|^ppa\.launchpadcontent[^\.]|^ppa\.launchpadcontent\.[^n]|^ppa\.launchpadcontent\.n[^e]|^ppa\.launchpadcontent\.ne[^t]/
+Pin: origin /^[^gp]|^g[^p]|^gp[^l]|^gpl[^\.]|^gpl\.[^s]|^gpl\.s[^a]|^gpl\.sa[^v]|^gpl\.sav[^o]|^gpl\.savo[^i]|^gpl\.savoi[^r]|^gpl\.savoir[^f]|^gpl\.savoirf[^a]|^gpl\.savoirfa[^i]|^gpl\.savoirfai[^r]|^gpl\.savoirfair[^e]|^gpl\.savoirfaire[^l]|^gpl\.savoirfairel[^i]|^gpl\.savoirfaireli[^n]|^gpl\.savoirfairelin[^u]|^gpl\.savoirfairelinu[^x]|^gpl\.savoirfairelinux[^\.]|^gpl\.savoirfairelinux\.[^n]|^gpl\.savoirfairelinux\.n[^e]|^gpl\.savoirfairelinux\.ne[^t]|^gpl\.savoirfairelinux\.net.|^p[^p]|^pp[^a]|^ppa[^\.]|^ppa\.[^l]|^ppa\.l[^a]|^ppa\.la[^u]|^ppa\.lau[^n]|^ppa\.laun[^c]|^ppa\.launc[^h]|^ppa\.launch[^p]|^ppa\.launchp[^a]|^ppa\.launchpa[^d]|^ppa\.launchpad[^c]|^ppa\.launchpadc[^o]|^ppa\.launchpadco[^n]|^ppa\.launchpadcon[^t]|^ppa\.launchpadcont[^e]|^ppa\.launchpadconte[^n]|^ppa\.launchpadconten[^t]|^ppa\.launchpadcontent[^\.]|^ppa\.launchpadcontent\.[^n]|^ppa\.launchpadcontent\.n[^e]|^ppa\.launchpadcontent\.ne[^t]|^ppa\.launchpadcontent\.net./
 Pin-Priority: -1
 
 
@@ -120,5 +120,5 @@ Pin-Priority: 500
 
 ## Rudimentary defense against viruses modifying /etc/apt/sources.list.d
 Package: *
-Pin: origin /^[^g]|^g[^p]|^gp[^l]|^gpl[^\.]|^gpl\.[^s]|^gpl\.s[^a]|^gpl\.sa[^v]|^gpl\.sav[^o]|^gpl\.savo[^i]|^gpl\.savoi[^r]|^gpl\.savoir[^f]|^gpl\.savoirf[^a]|^gpl\.savoirfa[^i]|^gpl\.savoirfai[^r]|^gpl\.savoirfair[^e]|^gpl\.savoirfaire[^l]|^gpl\.savoirfairel[^i]|^gpl\.savoirfaireli[^n]|^gpl\.savoirfairelin[^u]|^gpl\.savoirfairelinu[^x]|^gpl\.savoirfairelinux[^\.]|^gpl\.savoirfairelinux\.[^n]|^gpl\.savoirfairelinux\.n[^e]|^gpl\.savoirfairelinux\.ne[^t]/
+Pin: origin /^[^g]|^g[^p]|^gp[^l]|^gpl[^\.]|^gpl\.[^s]|^gpl\.s[^a]|^gpl\.sa[^v]|^gpl\.sav[^o]|^gpl\.savo[^i]|^gpl\.savoi[^r]|^gpl\.savoir[^f]|^gpl\.savoirf[^a]|^gpl\.savoirfa[^i]|^gpl\.savoirfai[^r]|^gpl\.savoirfair[^e]|^gpl\.savoirfaire[^l]|^gpl\.savoirfairel[^i]|^gpl\.savoirfaireli[^n]|^gpl\.savoirfairelin[^u]|^gpl\.savoirfairelinu[^x]|^gpl\.savoirfairelinux[^\.]|^gpl\.savoirfairelinux\.[^n]|^gpl\.savoirfairelinux\.n[^e]|^gpl\.savoirfairelinux\.ne[^t]|^gpl\.savoirfairelinux\.net./
 Pin-Priority: -1
