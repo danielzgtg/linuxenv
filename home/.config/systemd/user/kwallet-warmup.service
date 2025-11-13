@@ -4,6 +4,7 @@ After=plasma-xdg-desktop-portal-kde.service
 
 [Service]
 ExecStart=/usr/bin/kwallet-query -l kdewallet
+SuccessExitStatus=4
 Type=oneshot
 
 [Install]
