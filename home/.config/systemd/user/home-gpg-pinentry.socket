@@ -1,0 +1,12 @@
+[Unit]
+Description=Listen for GPG pinentry from user home-gpg
+
+[Socket]
+Accept=yes
+DirectoryMode=0310
+ListenStream=/dev/shm/home-gpg-pinentry/.socket
+MaxConnections=2
+SocketMode=0660
+
+[Install]
+WantedBy=sockets.target

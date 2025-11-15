@@ -13,6 +13,7 @@ if [[ $EUID -eq 0 ]]; then
     exit 1
 fi
 
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR"/gnupg/S.gpg-agent.ssh
 export GTK_IM_MODULE=fcitx
 export GTK_USE_PROFILE=1
 export XMODIFIERS=@im=fcitx

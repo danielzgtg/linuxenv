@@ -1,0 +1,11 @@
+[Unit]
+CollectMode=inactive-or-failed
+Description=Serve GPG pinentry to user home-gpg
+Requires=home-gpg-pinentry.socket
+
+[Service]
+ExecStart=%h/bin/home-gpg-pinentry
+Type=oneshot
+StandardInput=socket
+StandardOutput=socket
+StandardError=journal
