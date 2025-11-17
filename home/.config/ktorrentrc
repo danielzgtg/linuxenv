@@ -1,0 +1,11 @@
+[downloads]
+allowUnencryptedConnections=false
+completedDir=/home/home
+dhtSupport=true
+networkInterface=Toutes les interfaces
+primaryTransportProtocol=1
+saveDir=/home/home
+tempDir=/home/home/run/ktorrent
+torrentCopyDir=/home/home
+useEncryption=true
+utpEnabled=true
