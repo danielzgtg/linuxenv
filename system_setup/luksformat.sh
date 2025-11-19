@@ -32,8 +32,6 @@ declare -a args=(
   --hash=sha256
   --key-size=512
   --key-slot=0
-  --keyslot-cipher=aes-xts-plain64
-  --keyslot-key-size=512
   --label="$2"
   --pbkdf-force-iterations=10
   --pbkdf-memory=4194304
@@ -45,12 +43,16 @@ declare -a args=(
 )
 
 # # NVM, this prevents only bitrot not replay
-#read -n1 -rp 'Integrity [yN]?' integrity
-#[ "$integrity" = y ] && args+=(
-#  --integrity='hmac-sha256'
-#  --integrity-key-size=256
-#  --integrity-no-wipe
-#)
+# read -n1 -rp 'Integrity [yN]?' integrity
+integrity=n
+[ "$integrity" = y ] && args+=(
+  --integrity='hmac-sha256'
+   --integrity-key-size=4096
+   --integrity-no-wipe
+) || args+=(
+  --keyslot-cipher=aes-xts-plain64
+  --keyslot-key-size=512
+)
 
 <<<"$password" cryptsetup luksFormat "$1" "${args[@]}"
 
