@@ -73,9 +73,9 @@
 -A ufw-before-input -p udp -d 224.0.0.251 --dport 5353 -j ACCEPT
 -A ufw-before-output -p udp -d 224.0.0.251 --dport 5353 -j ACCEPT
 
-# allow MULTICAST UPnP for service discovery (be sure the MULTICAST line above
+# <s>allow</s> MULTICAST UPnP for service discovery (be sure the MULTICAST line above
 # is uncommented)
-#-A ufw-before-input -p udp -d 239.255.255.250 --dport 1900 -j ACCEPT
+-A ufw-before-input -p udp -d 239.255.255.250 --dport 1900 -j DROP
 
 # https://askubuntu.com/a/523501/1004020
 # allow igmp codes from my local sub-net
