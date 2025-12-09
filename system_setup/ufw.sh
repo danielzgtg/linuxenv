@@ -42,8 +42,10 @@ egress port 443 comment 'web'
 [ -f /etc/linuxenv-leader ] && egress proto tcp port 465,993 comment 'email' || :
 egress proto tcp port 853 comment 'dnsovertls'
 egress_ethernet proto tcp port 4713 comment 'pulseaudio'
-egress port 6881 comment 'ktorrent'
-egress proto udp port 7881,8881 comment 'ktorrent'
+egress proto tcp port 6881 comment 'ktorrent'
+egress proto tcp port 6929 comment 'ktorrent'
+ufw allow out from 0.0.0.0/0 port 6881 comment 'ktorrent'
+ufw allow out proto udp from 0.0.0.0/0 port 7881,8881 comment 'ktorrent'
 
 ufw default deny incoming
 ufw default deny outgoing
