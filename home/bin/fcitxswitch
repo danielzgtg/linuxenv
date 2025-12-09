@@ -36,6 +36,9 @@ else
  echo 'Deactivating same '"$REPLY"
 fi
 
+# Backport https://github.com/fcitx/fcitx5/pull/1467
+inotifywait -e moved_to --include kxkbrc ~/.config && busctl emit --user /kxkbrc org.kde.kconfig.notify ConfigChanged a{saay} 1 Layout 4 10 76 97 121 111 117 116 76 105 115 116 12 68 105 115 112 108 97 121 78 97 109 101 115 11 86 97 114 105 97 110 116 76 105 115 116 3 85 115 101 &
+
 # Somehow Fcitx5 not liking signals necessitates --type or --print-reply to force Fcitx5 the type method_call.
 dbus-send --type=method_call "$DEST" "$PKG" "$BASE".SwitchInputMethodGroup string:"$NEXT"
 
