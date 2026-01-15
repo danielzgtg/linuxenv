@@ -64,11 +64,11 @@ Pin: origin *
 Pin-Priority: -1
 
 
-Package: iptsd libwacom*-surface linux-headers-*-surface* linux-image-*-surface* linux-image-surface* linux-surface-secureboot-mok surface-control surface-dtx-daemon
+Package: iptsd libwacom*-surface linux-headers-*-surface* linux-image-*-surface* linux-image-surface* linux-headers-*-surface* linux-headers-surface* linux-surface-secureboot-mok surface-control surface-dtx-daemon
 Pin: origin pkg.surfacelinux.com
 Pin-Priority: 1000
 
-Package: iptsd:any libwacom*-surface:any linux-headers-*-surface*:any linux-image-*-surface*:any linux-image-surface*:any linux-surface-secureboot-mok:any surface-control:any surface-dtx-daemon:any
+Package: iptsd:any libwacom*-surface:any linux-headers-*-surface*:any linux-image-*-surface*:any linux-image-surface*:any linux-headers-*-surface:any linux-headers-surface*:any linux-surface-secureboot-mok:any surface-control:any surface-dtx-daemon:any
 Pin: origin *
 Pin-Priority: -1
 
