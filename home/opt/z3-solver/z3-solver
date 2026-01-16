@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+cd ~/opt/z3-solver
+. venv/bin/activate
+exec python3 -i ~/opt/z3-solver/init_z3_solver.py
