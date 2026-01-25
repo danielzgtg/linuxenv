@@ -1,0 +1,26 @@
+#!/bin/bash
+set -e
+
+my_username='danielzgtg'
+
+[ $# -eq 0 ] || { echo 'Usage: gitremotefork'; exit 1; }
+
+git remote get-url upstream >/dev/null 2>/dev/null && { echo 'Upstream already set'; exit 1; } || :
+upstream="$(git remote get-url origin)"
+
+# I use SSH not HTTPS
+if [[ "$upstream" =~ ^git@github\.com:([a-zA-Z0-9_.-]+)/([a-zA-Z0-9-]+)\.git$ ]]; then
+  their_username="${BASH_REMATCH[1]}"
+  project="${BASH_REMATCH[2]}"
+else
+  echo 'Unparseable Git remote origin'
+  exit 1
+fi
+
+[ "$their_username" = "$my_username" ] && { echo 'I already own the origin'; exit 1; } || :
+origin='git@github.com:'"$my_username"/"$project"'.git'
+
+git remote rename origin upstream
+git remote add origin "$origin"
+git remote -v
+# Needn’t fetch; origin’s newly forked and needs only pushes
