@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+. ~/opt/asciidoc/venv/bin/activate
+exec ~/opt/asciidoc/venv/bin/asciidoc "$@"
