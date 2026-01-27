@@ -3,7 +3,7 @@ The following filters are applied to all incoming mail:
 Do this: Mark as read, Apply label "Develop", Never send it to Spam, Never mark it as important, Categorize as Forums	edit     delete
 	Matches: from:(@duolingo.com OR @buganizer-system@google.com)
 Do this: Mark as read, Never send it to Spam, Never mark it as important, Categorize as Forums	edit     delete
-	Matches: from:(@bitbucket.org OR @bugs.debian.org OR @bugs.launchpad.net OR @github.com OR @gitlab.com OR @gitlab.freedesktop.org OR @gnome.org OR @kde.org OR @winehq.org OR @youtrack-mail.jetbrains.com OR bugzilla-daemon@mozilla.org OR phabricator@mozilla.com)
+	Matches: from:(@bitbucket.org OR @bugs.debian.org OR @bugs.launchpad.net OR @github.com OR @gitlab.com OR @gitlab.freedesktop.org OR @gnome.org OR @kde.org OR @notifications.huggingface.co OR @winehq.org OR @youtrack-mail.jetbrains.com OR bugzilla-daemon@mozilla.org OR phabricator@mozilla.com)
 Do this: Apply label "Develop", Never send it to Spam, Never mark it as important, Categorize as Forums	edit     delete
 	Matches: from:(@order.eventbrite.com OR @studentcare.ca OR @uottawa.ca OR @uosu-seuo.com)
 Do this: Never send it to Spam, Categorize as Primary	edit     delete
