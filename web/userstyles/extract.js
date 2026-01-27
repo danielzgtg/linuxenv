@@ -23,8 +23,8 @@ for (const userstyle of data.slice(1)) {
     delete userstyle?._usw?.token;
     sections.forEach((section, i) => {
         const cssPath = `${name}.${i}.css`;
-        fs.writeFileSync(cssPath, section.code.trimEnd() + "\n");
         console.log(cssPath);
+        fs.writeFileSync(cssPath, section.code.trimEnd() + "\n");
         delete section.code;
     });
 }

@@ -19,8 +19,8 @@ for (const userstyle of data.slice(1)) {
     }
     sections.forEach((section, i) => {
         const cssPath = `${name}.${i}.css`;
-        section.code = fs.readFileSync(cssPath, "utf-8").trimEnd();
         console.log(cssPath);
+        section.code = fs.readFileSync(cssPath, "utf-8").trimEnd();
     });
 }
 
