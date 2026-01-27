@@ -1,0 +1,322 @@
+[
+  {
+    "settings": {
+      "disableAll": false,
+      "exposeIframes": false,
+      "exposeStyleName": false,
+      "keepAlive": 0,
+      "keepAliveIdle": false,
+      "newStyleAsUsercss": false,
+      "openEditInWindow": false,
+      "openEditInWindow.popup": false,
+      "patchCsp": false,
+      "show-badge": true,
+      "styleViaASS": false,
+      "styleViaXhr": false,
+      "urlInstaller": true,
+      "windowPosition": {},
+      "compactWidth": 850,
+      "config.autosave": true,
+      "schemeSwitcher.enabled": "system",
+      "schemeSwitcher.nightStart": "18:00",
+      "schemeSwitcher.nightEnd": "06:00",
+      "popup.enabledFirst": true,
+      "popup.stylesFirst": true,
+      "popup.autoResort": false,
+      "popup.borders": false,
+      "popup.findSort": "w",
+      "manage.onlyEnabled": false,
+      "manage.onlyLocal": false,
+      "manage.onlyUsercss": false,
+      "manage.onlyEnabled.invert": false,
+      "manage.onlyLocal.invert": false,
+      "manage.onlyUsercss.invert": false,
+      "manage.actions.expanded": false,
+      "manage.backup.expanded": true,
+      "manage.filters.expanded": true,
+      "manage.links.expanded": true,
+      "manage.minColumnWidth": 750,
+      "manage.newUI": true,
+      "manage.newUI.favicons": true,
+      "manage.newUI.faviconsGray": false,
+      "manage.newUI.targets": 3,
+      "manage.newUI.sort": "title,asc",
+      "manage.searchMode": "meta",
+      "editor.options": {},
+      "editor.toc.expanded": true,
+      "editor.options.expanded": true,
+      "editor.options.style.expanded": true,
+      "editor.lint.expanded": true,
+      "editor.publish.expanded": true,
+      "editor.lineWrapping": true,
+      "editor.smartIndent": true,
+      "editor.indentWithTabs": false,
+      "editor.tabSize": 4,
+      "editor.keyMap": "default",
+      "editor.theme": "default",
+      "editor.beautify": {
+        "selector_separator_newline": true,
+        "newline_before_open_brace": false,
+        "newline_after_open_brace": true,
+        "newline_between_properties": true,
+        "newline_before_close_brace": true,
+        "newline_between_rules": false,
+        "preserve_newlines": true,
+        "end_with_newline": false,
+        "indent_conditional": true,
+        "indent_mozdoc": true,
+        "space_around_combinator": true,
+        "space_around_cmp": false
+      },
+      "editor.beautify.hotkey": "",
+      "editor.lintDelay": 300,
+      "editor.linter": "csslint",
+      "editor.lintReportDelay": 500,
+      "editor.matchHighlight": "token",
+      "editor.autoCloseBrackets": true,
+      "editor.autocompleteOnTyping": false,
+      "editor.contextDelete": false,
+      "editor.selectByTokens": true,
+      "editor.arrowKeysTraverse": true,
+      "editor.appliesToLineWidget": true,
+      "editor.autosaveDraft": 10,
+      "editor.livePreview": true,
+      "editor.livePreview.delay": 0.2,
+      "editor.targetsFirst": true,
+      "editor.colorpicker": true,
+      "editor.colorpicker.hexUppercase": false,
+      "editor.colorpicker.hotkey": "",
+      "editor.colorpicker.color": "",
+      "editor.colorpicker.maxHeight": 300,
+      "hotkey._execute_browser_action": "",
+      "hotkey.openManage": "",
+      "hotkey.styleDisableAll": "",
+      "sync.enabled": "none",
+      "iconset": -1,
+      "badgeDisabled": "#8B0000",
+      "badgeNormal": "#006666",
+      "headerWidth.edit": 280,
+      "headerWidth.install": 280,
+      "headerWidth.manage": 280,
+      "popup.search.globals": false,
+      "popupWidth": 246,
+      "popupWidthMax": 280,
+      "updateInterval": 24,
+      "updateOnlyEnabled": false,
+      "undefined": null
+    },
+    "order": {
+      "main": [],
+      "prio": []
+    }
+  },
+  {
+    "enabled": true,
+    "installDate": 1741482726867,
+    "name": "www.renpy.org",
+    "sections": [
+      {
+        "domains": [
+          "www.renpy.org",
+          "onnxruntime.ai"
+        ]
+      }
+    ],
+    "updateDate": 1769524314271,
+    "_id": "41ba2d61-1162-48d5-85a2-947b99c13623",
+    "_rev": 1769524314271,
+    "id": 4
+  },
+  {
+    "enabled": true,
+    "installDate": 1735810301154,
+    "name": "Wikipedia collapse references, etc.",
+    "sections": [
+      {
+        "domains": [
+          "mediawiki.org",
+          "wikibooks.org",
+          "wikidata.org",
+          "wikifunctions.org",
+          "wikimedia.org",
+          "wikinews.org",
+          "wikipedia.org",
+          "wikiquote.org",
+          "wikisource.org",
+          "wikiversity.org",
+          "wikivoyage.org",
+          "wiktionary.org"
+        ]
+      }
+    ],
+    "updateDate": 1762560473827,
+    "_id": "9ce9a14d-13ea-47a8-b801-53140fbd19cb",
+    "_rev": 1769524306303,
+    "id": 1,
+    "url": "https://userstyles.world/style/21716",
+    "_usw": {
+      "description": "Collapse references, notes, signatures, and floating buttons on Wikipedia without logging in",
+      "license": "CC Zero",
+      "name": "Wikipedia collapse references, etc.",
+      "id": 21716
+    }
+  },
+  {
+    "enabled": true,
+    "installDate": 1736114136073,
+    "name": "YouTube domtitles (subtitles on top)",
+    "sections": [
+      {
+        "domains": [
+          "youtube.com"
+        ]
+      }
+    ],
+    "updateDate": 1743741877579,
+    "_id": "555aff60-a729-4a4f-b5a6-836690895c62",
+    "_rev": 1769524306303,
+    "id": 3,
+    "url": "https://userstyles.world/style/21728",
+    "_usw": {
+      "description": "YouTube, domtitles on top, move subtitles to top, toptitles, surtitles, supertitles, Captitles, SurCaps, OpTrans",
+      "license": "CC Zero",
+      "name": "YouTube domtitles (subtitles on top)",
+      "id": 21728
+    }
+  },
+  {
+    "enabled": true,
+    "installDate": 1742430572705,
+    "name": "Disable hyphenation (superpowered)",
+    "sections": [
+      {
+        "regexps": [
+          ".*"
+        ]
+      }
+    ],
+    "updateDate": 1742432426098,
+    "_id": "1a39ddc4-2d61-46e3-b9ec-500bebaecf4c",
+    "_rev": 1769524306303,
+    "id": 6,
+    "url": "https://userstyles.world/style/21490",
+    "_usw": {
+      "description": "Actually disable hyphenation globally on every website using a forceful method that actually works",
+      "homepage": "",
+      "license": "CC Zero",
+      "name": "Disable hyphenation (superpowered)",
+      "id": 21490,
+      "username": "danielzgtg"
+    }
+  },
+  {
+    "enabled": true,
+    "installDate": 1743651019240,
+    "name": "Wikipedia selectable math equations unofficial",
+    "sections": [
+      {
+        "domains": [
+          "mediawiki.org",
+          "wikibooks.org",
+          "wikidata.org",
+          "wikifunctions.org",
+          "wikimedia.org",
+          "wikinews.org",
+          "wikipedia.org",
+          "wikiquote.org",
+          "wikisource.org",
+          "wikiversity.org",
+          "wikivoyage.org",
+          "wiktionary.org"
+        ]
+      }
+    ],
+    "updateDate": 1743651039901,
+    "_id": "2091bf19-b745-415d-af98-a22077c46f31",
+    "_rev": 1769524306303,
+    "id": 7,
+    "url": "https://userstyles.world/style/21709",
+    "_usw": {
+      "description": "A different method to make Wikipedia's math equations selectable without logging in",
+      "homepage": "",
+      "license": "CC Zero",
+      "name": "Wikipedia selectable MathML equations unofficial",
+      "id": 21709
+    }
+  },
+  {
+    "enabled": true,
+    "installDate": 1747765076988,
+    "name": "Investopedia high contrast reader mode",
+    "sections": [
+      {
+        "domains": [
+          "www.investopedia.com"
+        ]
+      },
+      {
+        "domains": [
+          "datawrapper.dwcdn.net"
+        ]
+      }
+    ],
+    "updateDate": 1769440395111,
+    "_id": "a3b3ff74-c86b-4e3f-8314-f2715dd59ddf",
+    "_rev": 1769524306303,
+    "id": 12,
+    "url": "https://userstyles.world/style/26248",
+    "_usw": {
+      "description": "Acts like reader mode and high contrast mode are automatically enabled for Investopedia.com",
+      "license": "CC Zero",
+      "name": "Investopedia high contrast reader mode",
+      "id": 26248
+    }
+  },
+  {
+    "enabled": true,
+    "installDate": 1748846207786,
+    "name": "GitHub no sticky header",
+    "sections": [
+      {
+        "domains": [
+          "github.com"
+        ]
+      }
+    ],
+    "updateDate": 1755116584881,
+    "_id": "f8fef44f-bb52-4746-9f64-9c887a2c5d69",
+    "_rev": 1769524306303,
+    "id": 14,
+    "url": "https://userstyles.world/style/22626",
+    "_usw": {
+      "description": "Disables sticky lines and breadcrumbs for easier reading",
+      "license": "CC Zero",
+      "name": "GitHub no sticky header",
+      "id": 22626
+    }
+  },
+  {
+    "enabled": true,
+    "installDate": 1769363141787,
+    "name": "Launchpad.net no monospace font",
+    "sections": [
+      {
+        "domains": [
+          "launchpad.net"
+        ]
+      }
+    ],
+    "updateDate": 1769364855587,
+    "_id": "ead35834-30da-4b4a-aa39-364d9f1b7489",
+    "_rev": 1769524306303,
+    "id": 18,
+    "url": "https://userstyles.world/style/26238",
+    "_usw": {
+      "description": "Changes Launchpad.net bug tracker descriptions and comments from the monospace font to a regular one",
+      "homepage": "",
+      "license": "CC Zero",
+      "name": "Launchpad.net no monospace font",
+      "id": 26238
+    }
+  }
+]

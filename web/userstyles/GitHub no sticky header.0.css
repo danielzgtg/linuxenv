@@ -1,0 +1,15 @@
+div#repos-sticky-header {
+    /* Hide: Main branch, go to top, Code|Preview|Blame, etc. */
+    z-index: 0 !important;
+
+    & + * {
+        /* Make sure Preview|Code|Blame is still clickable */
+        z-index: 1 !important;
+        position: relative;
+    }
+}
+
+div[class^=StickyLinesHeader] {
+    /* Hide: public class ... */
+    display: none;
+}

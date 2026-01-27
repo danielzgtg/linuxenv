@@ -1,0 +1,6 @@
+div.caption-window {
+    /* "domtitles" name is from https://old.reddit.com/r/unpopularopinion/comments/r9ioh7/subtitles_should_be_at_the_top_of_the_screen/ */
+    /* Does not require the Language Reactor extension that https://userstyles.world/style/12022/top-subtitles-for-lly requires */
+    bottom: unset !important;
+    top: 2% !important;
+}

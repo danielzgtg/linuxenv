@@ -1,0 +1,5 @@
+/* Make graphs readable in dark mode */
+span, div, tspan {
+    color: #fff !important;
+    text-shadow: none !important;
+}

@@ -1,0 +1,207 @@
+{
+  "scripts": {
+    "Fix video speed controller YouTube subtitles lagging behind": {
+      "custom": {
+        "origInclude": true,
+        "origExclude": true,
+        "origMatch": true,
+        "origExcludeMatch": true,
+        "pathMap": {}
+      },
+      "config": {
+        "enabled": 1,
+        "shouldUpdate": 1,
+        "removed": 0
+      },
+      "position": 1,
+      "lastModified": 1762222780538,
+      "lastUpdated": 1762222780538
+    },
+    "Kiwix Wiktionary power user tweaks": {
+      "custom": {
+        "origInclude": true,
+        "origExclude": true,
+        "origMatch": true,
+        "origExcludeMatch": true,
+        "pathMap": {},
+        "lastInstallURL": "https://update.greasyfork.org/scripts/564044/Kiwix%20Wiktionary%20power%20user%20tweaks.user.js"
+      },
+      "config": {
+        "enabled": 1,
+        "shouldUpdate": 0,
+        "removed": 0
+      },
+      "position": 2,
+      "lastModified": 1769360702485,
+      "lastUpdated": 1769360688237
+    },
+    "Duolingo keyboard shortcuts 2025": {
+      "custom": {
+        "origInclude": true,
+        "origExclude": true,
+        "origMatch": true,
+        "origExcludeMatch": true,
+        "pathMap": {},
+        "lastInstallURL": "https://update.greasyfork.org/scripts/564033/Duolingo%20keyboard%20shortcuts%202025.user.js"
+      },
+      "config": {
+        "enabled": 1,
+        "shouldUpdate": 0,
+        "removed": 0
+      },
+      "position": 3,
+      "lastModified": 1769355342150,
+      "lastUpdated": 1769355225197
+    },
+    "MathJax selectable text": {
+      "custom": {
+        "origInclude": true,
+        "origExclude": true,
+        "origMatch": true,
+        "origExcludeMatch": true,
+        "pathMap": {},
+        "lastInstallURL": "https://update.greasyfork.org/scripts/564042/MathJax%20selectable%20text.user.js"
+      },
+      "config": {
+        "enabled": 1,
+        "shouldUpdate": 0,
+        "removed": 0
+      },
+      "position": 4,
+      "lastModified": 1769360114084,
+      "lastUpdated": 1769360106178
+    },
+    "Force Wikimedia dark mode": {
+      "custom": {
+        "origInclude": true,
+        "origExclude": true,
+        "origMatch": true,
+        "origExcludeMatch": true,
+        "pathMap": {},
+        "lastInstallURL": "https://update.greasyfork.org/scripts/564037/Force%20Wikimedia%20dark%20mode.user.js"
+      },
+      "config": {
+        "enabled": 1,
+        "shouldUpdate": 0,
+        "removed": 0
+      },
+      "position": 5,
+      "lastModified": 1769356947669,
+      "lastUpdated": 1769356933195
+    },
+    "Stack Exchange global dark mode": {
+      "custom": {
+        "origInclude": true,
+        "origExclude": true,
+        "origMatch": true,
+        "origExcludeMatch": true,
+        "pathMap": {},
+        "lastInstallURL": "https://update.greasyfork.org/scripts/564039/Stack%20Exchange%20global%20dark%20mode.user.js"
+      },
+      "config": {
+        "enabled": 1,
+        "shouldUpdate": 0,
+        "removed": 0
+      },
+      "position": 6,
+      "lastModified": 1769359042598,
+      "lastUpdated": 1769358908082
+    },
+    "Steam auto-activate": {
+      "custom": {
+        "origInclude": true,
+        "origExclude": true,
+        "origMatch": true,
+        "origExcludeMatch": true,
+        "from": "https://greasyfork.org/en/scripts/445572-steam-auto-activate/code",
+        "lastInstallURL": "https://update.greasyfork.org/scripts/445572/Steam%20auto-activate.user.js",
+        "pathMap": {}
+      },
+      "config": {
+        "enabled": 1,
+        "shouldUpdate": 1,
+        "removed": 0
+      },
+      "position": 7,
+      "lastModified": 1766671197071,
+      "lastUpdated": 1766671197071
+    }
+  },
+  "settings": {
+    "isApplied": true,
+    "blacklist": "file://*/*",
+    "blacklistNet": "file://*/*",
+    "popupWidth": 320,
+    "updateEnabledScriptsOnly": true,
+    "autoUpdate": 0,
+    "lastUpdate": 1743821511274,
+    "lastModified": 1769437572863,
+    "showBadge": "unique",
+    "badgeColor": "#880088",
+    "badgeColorBlocked": "#888888",
+    "exportValues": true,
+    "exportNameTemplate": "[violentmonkey]_YYYY-MM-DD_HH.mm.ss",
+    "expose": {
+      "greasyfork%2Eorg": true,
+      "sleazyfork%2Eorg": false
+    },
+    "closeAfterInstall": false,
+    "editAfterInstall": false,
+    "helpForLocalFile": true,
+    "trackLocalFile": false,
+    "autoReload": false,
+    "features": null,
+    "syncScriptStatus": true,
+    "syncAutomatically": true,
+    "customCSS": "",
+    "importScriptData": true,
+    "importSettings": true,
+    "notifyUpdates": false,
+    "notifyUpdatesGlobal": false,
+    "version": 1,
+    "defaultInjectInto": "auto",
+    "ffInject": true,
+    "xhrInject": false,
+    "filters": {
+      "showOrder": false,
+      "showVisit": false,
+      "sort": "exec",
+      "viewSingleColumn": false,
+      "viewTable": false
+    },
+    "filtersPopup": {
+      "sort": "exec",
+      "enabledFirst": false,
+      "groupRunAt": true,
+      "hideDisabled": ""
+    },
+    "editor": {
+      "killTrailingSpaceOnSave": true,
+      "showTrailingSpace": true,
+      "autocompleteOnTyping": 100,
+      "lineWrapping": false,
+      "indentWithTabs": false,
+      "indentUnit": 2,
+      "tabSize": 2,
+      "undoDepth": 500
+    },
+    "editorTheme": "",
+    "editorThemeName": null,
+    "editorWindow": false,
+    "editorWindowPos": {},
+    "editorWindowSimple": true,
+    "scriptTemplate": "// ==UserScript==\n// @name        New script {{name}}\n// @namespace   Violentmonkey Scripts\n// @match       {{url}}\n// @grant       none\n// @version     1.0\n// @author      -\n// @description {{date}}\n// ==/UserScript==\n",
+    "showAdvanced": true,
+    "valueEditor": {
+      "autocompleteOnTyping": 100,
+      "lineWrapping": false,
+      "indentWithTabs": false,
+      "indentUnit": 2,
+      "tabSize": 2,
+      "undoDepth": 500,
+      "editAsString": true
+    },
+    "uiTheme": ""
+  },
+  "values": {}
+}

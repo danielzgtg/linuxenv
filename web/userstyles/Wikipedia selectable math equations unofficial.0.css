@@ -1,0 +1,24 @@
+.mwe-math-mathml-a11y {
+  /*
+   * Shows the accessibility MathML hidden by
+   * https://gerrit.wikimedia.org/g/mediawiki/extensions/Math/+/81fa104e07ce641d38a2d7d37a9c68886895635a/modules/ext.math.css#20
+   */
+  clip: revert !important;
+  overflow: revert !important;
+  position: revert !important;
+  width: revert !important;
+  height: revert !important;
+  opacity: revert !important;
+
+  /* Block the images that this userstyle replaces */
+  & ~ img {
+    display:none !important;
+  }
+
+  /*
+   * You might also want to try the official version at
+   * https://www.mediawiki.org/wiki/Extension:Math/advancedSettings
+   *
+   * I choose to set my math font-family in Firefox not CSS.
+   */
+}
