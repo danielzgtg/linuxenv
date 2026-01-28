@@ -106,6 +106,14 @@ Package: apt-fast:any
 Pin: origin *
 Pin-Priority: -1
 
+Package: neovim*
+Pin: release o=LP-PPA-neovim-ppa-unstable
+Pin-Priority: 1000
+
+Package: neovim*
+Pin: origin *
+Pin-Priority: -1
+
 
 ## Ill-contained PPA allowlist
 Package: *
