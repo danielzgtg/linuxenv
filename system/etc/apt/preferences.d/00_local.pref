@@ -106,11 +106,21 @@ Package: apt-fast:any
 Pin: origin *
 Pin-Priority: -1
 
+
 Package: neovim*
 Pin: release o=LP-PPA-neovim-ppa-unstable
 Pin-Priority: 1000
 
 Package: neovim*
+Pin: origin *
+Pin-Priority: -1
+
+
+Package: gccgo-go golang*
+Pin: release o=LP-PPA-longsleep-golang-backports
+Pin-Priority: 1000
+
+Package: gccgo-go:any golang*
 Pin: origin *
 Pin-Priority: -1
 
