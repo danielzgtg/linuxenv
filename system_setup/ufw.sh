@@ -48,6 +48,7 @@ egress proto tcp port 6881 comment 'ktorrent'
 egress proto tcp port 6929 comment 'ktorrent'
 ufw allow out from 0.0.0.0/0 port 6881 comment 'ktorrent'
 ufw allow out proto udp from 0.0.0.0/0 port 7881,8881 comment 'ktorrent'
+egress proto udp port 10000:65535 comment 'webrtc'
 
 ufw default deny incoming
 ufw default deny outgoing
