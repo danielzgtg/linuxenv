@@ -1,0 +1,4 @@
+.include /usr/share/alsa-card-profile/mixer/profile-sets/default.conf
+
+[Profile hdmi34]
+output-mappings = hdmi-stereo-extra3 hdmi-stereo-extra4
