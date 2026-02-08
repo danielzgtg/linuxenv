@@ -1,4 +1,4 @@
 {
-    "data-root": "/home/docker/",
+    "data-root": "/run/user/linuxenv/docker/",
     "dns": ["172.17.0.1"]
 }

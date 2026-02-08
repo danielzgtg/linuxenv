@@ -14,7 +14,7 @@
 
 disabled_plugins = ["cri"]
 
-root = "/run/home/containerd"
+root = "/run/user/linuxenv/containerd"
 #state = "/run/containerd"
 #subreaper = true
 #oom_score = 0
