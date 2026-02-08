@@ -13,7 +13,7 @@
 // @run-at      document-body
 // @name        Stack Exchange global dark mode
 // @namespace   https://github.com/danielzgtg
-// @version     202601251134560001
+// @version     202602042053040001
 // @downloadURL https://update.greasyfork.org/scripts/564039/Stack%20Exchange%20global%20dark%20mode.user.js
 // @updateURL https://update.greasyfork.org/scripts/564039/Stack%20Exchange%20global%20dark%20mode.meta.js
 // ==/UserScript==
@@ -93,12 +93,34 @@ body.outside, body#chat-body {
     }
   }
 }
-div#user-menu, body#chat-body div.popup {
+div#user-menu, body#chat-body div.popup, #userlist>div.usercard, div.usercard-xxl, div.roomcard {
   background-color: var(--black-150);
   color: var(--fc-medium);
   a.um-user-link:not(#a#b), span {
     color: var(--fc-medium) !important;
   }
+}
+div.roomcard.frozen {
+  background-color: var(--black-200)
+}
+body#chat-body div.message-info-container>div>div.ob-post {
+  background-color: var(--black-150);
+  &, &>div.ob-post-title>a {
+    color: var(--fc-medium) !important;
+  }
+}
+/* Chat FAQ */
+body.faq-page {
+  #toc {
+    background-color: var(--black-150) !important;
+    li.current {
+      background-color: var(--black-200) !important;
+    }
+  }
+  /* jQuery error :(
+  /*div.col-section.expanded {
+    background-color: transparent !important;
+  }*/
 }
 #content {
   --theme-content-background-color: none;
@@ -110,12 +132,13 @@ header.s-topbar {
   --theme-topbar-item-background-hover: var(--black-200) !important;
   --theme-topbar-item-color: var(--black-400) !important;
   --theme-topbar-item-color-hover: var(--black-600) !important;
+  --theme-topbar-search-color: var(--black-500) !important;
   --theme-topbar-search-background: hsl(210,8%,25%) !important;
   --theme-topbar-search-placeholder: var(--black-400) !important;
   --theme-topbar-select-background: transparent !important;
 }
 /* Hide cookie and Google banners */
-div#onetrust-consent-sdk, div#credential_picker_container {
+div#onetrust-consent-sdk, div#credential_picker_container, a.ot-sdk-show-settings {
   display: none;
 }
 `);

@@ -112,23 +112,6 @@
   },
   {
     "enabled": true,
-    "installDate": 1741482726867,
-    "name": "www.renpy.org",
-    "sections": [
-      {
-        "domains": [
-          "www.renpy.org",
-          "onnxruntime.ai"
-        ]
-      }
-    ],
-    "updateDate": 1769524314271,
-    "_id": "41ba2d61-1162-48d5-85a2-947b99c13623",
-    "_rev": 1769524314271,
-    "id": 4
-  },
-  {
-    "enabled": true,
     "installDate": 1735810301154,
     "name": "Wikipedia collapse references, etc.",
     "sections": [
@@ -151,7 +134,7 @@
     ],
     "updateDate": 1762560473827,
     "_id": "9ce9a14d-13ea-47a8-b801-53140fbd19cb",
-    "_rev": 1769524306303,
+    "_rev": 1769807654993,
     "id": 1,
     "url": "https://userstyles.world/style/21716",
     "_usw": {
@@ -183,6 +166,23 @@
       "name": "YouTube domtitles (subtitles on top)",
       "id": 21728
     }
+  },
+  {
+    "enabled": true,
+    "installDate": 1741482726867,
+    "name": "www.renpy.org",
+    "sections": [
+      {
+        "domains": [
+          "www.renpy.org",
+          "onnxruntime.ai"
+        ]
+      }
+    ],
+    "updateDate": 1769524314271,
+    "_id": "41ba2d61-1162-48d5-85a2-947b99c13623",
+    "_rev": 1769524314271,
+    "id": 4
   },
   {
     "enabled": true,
@@ -231,14 +231,13 @@
         ]
       }
     ],
-    "updateDate": 1743651039901,
+    "updateDate": 1770147070176,
     "_id": "2091bf19-b745-415d-af98-a22077c46f31",
-    "_rev": 1769524306303,
+    "_rev": 1770147070176,
     "id": 7,
     "url": "https://userstyles.world/style/21709",
     "_usw": {
       "description": "A different method to make Wikipedia's math equations selectable without logging in",
-      "homepage": "",
       "license": "CC Zero",
       "name": "Wikipedia selectable MathML equations unofficial",
       "id": 21709
@@ -283,9 +282,9 @@
         ]
       }
     ],
-    "updateDate": 1755116584881,
+    "updateDate": 1770500427265,
     "_id": "f8fef44f-bb52-4746-9f64-9c887a2c5d69",
-    "_rev": 1769524306303,
+    "_rev": 1770500427265,
     "id": 14,
     "url": "https://userstyles.world/style/22626",
     "_usw": {
@@ -317,6 +316,30 @@
       "license": "CC Zero",
       "name": "Launchpad.net no monospace font",
       "id": 26238
+    }
+  },
+  {
+    "enabled": true,
+    "installDate": 1769643837707,
+    "name": "Stack Overflow gapless Copy button",
+    "sections": [
+      {
+        "domains": [
+          "stackoverflow.com"
+        ]
+      }
+    ],
+    "updateDate": 1769647532357,
+    "_id": "f01a6027-28e7-4c83-8129-68179bbf685f",
+    "_rev": 1769647532357,
+    "id": 22,
+    "url": "https://meta.stackoverflow.com/q/436727/10477326",
+    "_usw": {
+      "description": "Removes code blocks' extra blank line caused by the Copy button, which I move atop the corner.",
+      "homepage": "https://meta.stackoverflow.com/q/436727/10477326",
+      "license": "CC Zero",
+      "name": "Stack Overflow gapless Copy button",
+      "id": 26286
     }
   }
 ]

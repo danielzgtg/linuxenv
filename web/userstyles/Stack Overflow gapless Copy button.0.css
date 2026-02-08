@@ -1,0 +1,22 @@
+/* For https://meta.stackoverflow.com/q/436727/10477326 */
+pre.s-code-block {
+    /* Move scrollability away to allow floating button */
+    max-height: none;
+    overflow: visible !important;
+    padding: 0px !important;
+    position: relative !important;
+    /* Make Copy button take no extra line's space and float to top right */
+    > div {
+        position: absolute !important;
+        right: 0px;
+        top: -0.7em;
+    }
+    /* Restore scrollability */
+    code {
+        display: block;
+        overflow: auto;
+        max-height: 600px;
+        padding: var(--su12);
+        width: 100%;
+    }
+}

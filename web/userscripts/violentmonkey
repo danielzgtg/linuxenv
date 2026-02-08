@@ -50,8 +50,8 @@
         "removed": 0
       },
       "position": 3,
-      "lastModified": 1769355342150,
-      "lastUpdated": 1769355225197
+      "lastModified": 1770096500500,
+      "lastUpdated": 1770096500500
     },
     "MathJax selectable text": {
       "custom": {
@@ -68,8 +68,8 @@
         "removed": 0
       },
       "position": 4,
-      "lastModified": 1769360114084,
-      "lastUpdated": 1769360106178
+      "lastModified": 1769525032758,
+      "lastUpdated": 1769525032758
     },
     "Force Wikimedia dark mode": {
       "custom": {
@@ -99,13 +99,13 @@
         "lastInstallURL": "https://update.greasyfork.org/scripts/564039/Stack%20Exchange%20global%20dark%20mode.user.js"
       },
       "config": {
-        "enabled": 1,
+        "enabled": true,
         "shouldUpdate": 0,
         "removed": 0
       },
       "position": 6,
-      "lastModified": 1769359042598,
-      "lastUpdated": 1769358908082
+      "lastModified": 1770340898215,
+      "lastUpdated": 1770256386451
     },
     "Steam auto-activate": {
       "custom": {
@@ -113,7 +113,6 @@
         "origExclude": true,
         "origMatch": true,
         "origExcludeMatch": true,
-        "from": "https://greasyfork.org/en/scripts/445572-steam-auto-activate/code",
         "lastInstallURL": "https://update.greasyfork.org/scripts/445572/Steam%20auto-activate.user.js",
         "pathMap": {}
       },

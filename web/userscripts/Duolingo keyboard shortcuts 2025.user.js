@@ -48,7 +48,7 @@ document.addEventListener('keydown', e => {
     return;
   }
   const button = document.querySelector(
-    "[data-test='player-practice-again'], [data-test='player-next']");
+    "[data-test='player-practice-again'], [data-test='player-next'], button._1rcV8._1VYyp._1ursp._7jW2t._2CP5-.MYehf._19taU._1E9sc");
   if (button) {
     button.click();
     return;

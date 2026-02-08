@@ -4,7 +4,7 @@
    * https://gerrit.wikimedia.org/g/mediawiki/extensions/Math/+/81fa104e07ce641d38a2d7d37a9c68886895635a/modules/ext.math.css#20
    */
   clip: revert !important;
-  overflow: revert !important;
+  overflow: visible !important;
   position: revert !important;
   width: revert !important;
   height: revert !important;
@@ -21,4 +21,12 @@
    *
    * I choose to set my math font-family in Firefox not CSS.
    */
+
+    /* Spurious margin in 2026 */
+    margin-left: 0px !important;
+}
+
+span.mwe-math-element {
+    /* Remove stray 1px scroll */
+    overflow: visible;
 }

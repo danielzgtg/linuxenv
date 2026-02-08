@@ -13,3 +13,7 @@ div[class^=StickyLinesHeader] {
     /* Hide: public class ... */
     display: none;
 }
+
+div#issue-viewer-sticky-header, div[class*=StickyPullRequestHeader] {
+    display: none !important;
+}
