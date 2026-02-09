@@ -1,2 +1,4 @@
 #!/bin/bash
-exec ln -s /run/user/$UID ~/run
+ln -s /run/user/$UID ~/run
+chmod 700 ~/.gnupg ~/.ssh
+chmod 600 ~/.ssh/config
