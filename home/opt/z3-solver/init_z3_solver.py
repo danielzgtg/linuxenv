@@ -11,3 +11,5 @@ def PairSort(typ):
     return Pair.create()
 Pair = PairSort(IntSort())
 pair = lambda x, y: Pair.new(x, y)
+s = Solver()  # For when solve() ain't enough
+o = Optimize()
