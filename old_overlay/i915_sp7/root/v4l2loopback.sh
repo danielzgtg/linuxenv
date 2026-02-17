@@ -1,0 +1,2 @@
+#!/bin/dash
+exec modprobe v4l2loopback card_label='V4L2 Loopback' video_nr=7 exclusive_caps=1
