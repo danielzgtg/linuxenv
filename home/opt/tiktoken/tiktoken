@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+. ~/opt/tiktoken/venv/bin/activate
+exec ~/opt/tiktoken/tiktoken_loop.py
