@@ -1,5 +1,8 @@
 #!/bin/dash
 set -e
+pushd /dev/shm/home-gpg
+popd
+
 chmod 0700 "$XDG_RUNTIME_DIR"/gnupg
 # Ensure the systemd gpg-agent is used and no other is launched
 killall gpg-agent 2>/dev/null || :
@@ -9,5 +12,7 @@ chmod 0710 "$XDG_RUNTIME_DIR"/gnupg
 rm -rf ~/.gnupg.bak
 cp -rT ~/.gnupg ~/.gnupg.bak
 chmod 0000 ~/.gnupg.bak
-echo 'Please run:
-  cp -t /home/home/.gnupg /home/home-gpg/{pubring.kbx,trustdb.gpg}'
+
+cp -t /dev/shm/home-gpg ~/.gnupg/{pubring.kbx,trustdb.gpg}
+chmod 640 /dev/shm/home-gpg/{pubring.kbx,trustdb.gpg}
+# continued in ssh_key.sh
