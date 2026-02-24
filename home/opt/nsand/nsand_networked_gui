@@ -1,0 +1,2 @@
+#!/bin/bash
+NSAND_TYPE=networked_gui NSAND_INIT=1 exec ~/opt/nsand/nsand_core "$@"

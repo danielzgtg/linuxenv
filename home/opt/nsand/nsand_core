@@ -1,0 +1,233 @@
+#!/bin/bash
+set -ex
+declare -a unshare_args=()
+gui=
+networked=
+overlay=
+passthrough=
+case "$NSAND_TYPE" in
+  gui)
+    unshare_args=(--net)
+    gui=1
+    overlay=1
+    passthrough=1
+    ;;
+  networked)
+    unshare_args=(--pid)
+    networked=1
+    ;;
+  gui_networked)
+    gui=1
+    networked=1
+    overlay=1
+    ;;
+  networked_gui)
+    gui=1
+    networked=1
+    ;;
+  bare)
+    unshare_args=(--net --pid)
+    passthrough=1
+    ;;
+  *)
+    echo 'Unknown NSAND_TYPE'
+    exit 1
+    ;;
+esac
+case "$NSAND_INIT" in
+  1)
+    export NSAND_INIT=2
+    echo script
+    exec script /dev/null -c "exec ~/opt/nsand/nsand_core ${*@Q}"
+    ;;
+  2)
+    export NSAND_INIT=3
+    echo unshare
+    exec unshare --map-current-user --pid --mount-proc --fork --mount \
+      "${unshare_args[@]}" --keep-caps ~/opt/nsand/nsand_core "$@"
+    ;;
+  3)
+    unset NSAND_INIT
+    ;;
+  *)
+    echo 'Unknown NSAND_INIT'
+    exit 1
+    ;;
+esac
+ulimit -u 3000
+unset NSAND_INIT
+old_dir=~+
+if [ -z "$NSAND_DATA" ]; then
+  NSAND_DATA=~/opt/nsand
+  if [ -d ./sandbox ]; then
+    NSAND_DATA=.
+  else
+    passthrough=
+  fi
+else
+  passthrough=
+fi
+NSAND_DATA="$(realpath "$NSAND_DATA"/sandbox)"
+cd "$NSAND_DATA"
+if [ -z "$networked" ]; then
+  ip link set lo up
+fi
+mkdir -p tmp upper work
+mount -t tmpfs tmpfs -o size=1M tmp
+tmp_dir="$(realpath tmp)"
+cd tmp
+
+mkdir dev
+if [ -z "$gui" ]; then
+  # LSB only requires these three and most apps don't require more
+  cd dev
+  touch null
+  mount --bind /dev/null null
+  touch zero
+  mount --bind /dev/zero zero
+  touch tty
+  mount --bind /dev/tty tty
+  mkdir shm
+  cd ..
+else
+  mount --rbind /dev dev
+fi
+
+if [ -n "$gui" ]; then
+  # Required for GUI
+  mkdir -p run/user/$UID
+  mount -t tmpfs tmpfs -o size=512M,mode=700,uid=$UID,gid=$UID run/user/$UID
+  cd run/user/$UID
+  if compgen -G "/run/user/$UID/xauth_*" > /dev/null; then
+    cp -t . /run/user/$UID/xauth_*
+  fi
+  if [ -S /run/user/$UID/wayland-0 ]; then
+    touch wayland-0
+    mount --bind /run/user/$UID/wayland-0 wayland-0
+  else
+    unset WAYLAND_DISPLAY
+	export SDL_VIDEODRIVER=x11
+  fi
+  if [ -S /run/user/$UID/pulse/native ]; then
+    # Support PipeWire. Ignore ALSA
+    mkdir pulse
+    touch pulse/native
+    mount --bind /run/user/$UID/pulse/native pulse/native
+  fi
+  cd ../../..
+  #mount --rbind /run/user/$UID run/user/$UID
+  #mount --rbind /run run
+fi
+
+mkdir proc
+if [ -n "$gui" ]; then
+  mount --rbind /proc proc
+  mkdir sys
+  if [ -z "$networked" ]; then
+    mount -t sysfs sysfs sys # Needed for libGL
+  else
+    mount --rbind /sys sys
+  fi
+  #mount -o bind,remount,ro dev
+else
+  mount -t proc proc proc
+fi
+
+# /etc/alternatives
+mkdir etc
+mount --bind /etc etc
+if [ -n "$networked" ]; then
+  mkdir -p run/systemd/resolve
+  cp /run/systemd/resolve/stub-resolv.conf run/systemd/resolve/stub-resolv.conf
+fi
+
+# opt is unnecessary because whatever I have there are standalone apps
+# srv and boot are unnecessary because it's for system services
+
+# Hide actual /var and its important data
+mkdir var
+cd var
+ln -s /run/lock lock
+ln -s /run run
+ln -s /tmp tmp
+cd ..
+
+# Isolate tmp
+mkdir tmp
+mount -t tmpfs tmpfs -o size=2G tmp
+if [ -n "$gui" ]; then
+  # But allow X11
+  if [ -d /tmp/.X11-unix ]; then
+    mkdir tmp/.X11-unix
+    mount --bind /tmp/.X11-unix tmp/.X11-unix
+  fi
+fi
+
+# Python multiprocessing
+mkdir tmp/shm
+
+# Usrmerge
+ln -s /usr/bin bin
+ln -s /usr/lib lib
+ln -s /usr/lib32 lib32
+ln -s /usr/lib64 lib64
+ln -s /usr/libx32 libx32
+ln -s /usr/sbin sbin
+mkdir usr
+mount --rbind /usr usr
+
+mkdir -p ./"$HOME"
+if [ -n "$overlay" ]; then
+  mount -t overlay overlay -o userxattr,xino=off,lowerdir="$HOME",upperdir=$NSAND_DATA/upper,workdir=$NSAND_DATA/work "$(realpath ./"$HOME")"
+else
+  mount --rbind ~ ./"$HOME"
+fi
+if [ -n "$passthrough" ]; then
+  mount --rbind "$old_dir" ./"$old_dir"
+fi
+
+pivot_root . .
+umount -l .
+if [ -z "$overlay" ]; then
+  umount -l "$tmp_dir"
+fi
+cut -f 5 -d' ' /proc/self/mountinfo | while read -r path; do
+  # Above assumes no spaces in path
+  mount -o bind,remount,ro "$path"
+done
+mount -o bind,remount,rw /tmp
+if [ -d /dev/shm ]; then
+  mount --bind tmp/shm /dev/shm
+fi
+if [ -n "$overlay" ]; then
+  mount -o bind,remount,rw ~
+else
+  export HOME=/tmp
+fi
+if [ -n "$passthrough" ]; then
+  mount -o bind,remount,rw "$old_dir"
+fi
+if [ -n "$gui" ]; then
+  mount -o bind,remount,rw /run/user/$UID
+fi
+mount -o bind,remount,rw /proc
+# mount -o bind,remount,rw /proc
+# Could overmount sandbox dir to hide it but it already gives ELOOP and /proc/self/mounts would be more obvious
+
+cd $old_dir
+unset NSAND_TYPE
+export debian_chroot="$NSAND_DATA" # PS1-read
+if [ -n "$passthrough" ]; then
+  debian_chroot=passthrough:"$debian_chroot"
+fi
+unset NSAND_DATA
+# most cross-platform apps don't need symlinks
+# however, wine needs make-sock
+landlock_access=fs:make-char,make-fifo,make-block,make-sym
+echo sandboxed
+exec setpriv --no-new-privs \
+  --inh-caps=-all --ambient-caps=-all --bounding-set=-all \
+  --securebits=+noroot,+noroot_locked,+no_setuid_fixup,+no_setuid_fixup_locked,+keep_caps_locked \
+  --pdeathsig KILL \
+  --landlock-access "$landlock_access" \
+  ${@:-bash}
