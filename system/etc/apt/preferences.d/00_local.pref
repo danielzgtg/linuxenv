@@ -27,7 +27,7 @@ Pin-Priority: -1
 
 
 ## Use working AMD ROCm version not broken Ubuntu version
-Package: rocm* hip* miopen* libamd-comgr* libamdhip*
+Package: comgr* hip* hsa* libamd-comgr* libamdhip* miopen* rccl* roc*
 Pin: origin repo.radeon.com
 Pin-Priority: 1000
 

@@ -1,5 +1,5 @@
 Types: deb
-URIs: https://repo.radeon.com/rocm/apt/7.0.1
+URIs: https://repo.radeon.com/rocm/apt/7.2
 Suites: noble
 Components: main
 Architectures: amd64
