@@ -36,5 +36,11 @@ if ! ls -1 toolchains/ | wc -l | grep -q '^1$'; then
   exit 1
 fi
 ~/.cargo/bin/rustup update
-tldr --update
 nice ~/.cargo/bin/cargo-install-update install-update -af || true
+tldr --update
+
+pushd ~/CLionProjects/qsv
+git fetch upstream
+git reset --hard upstream/master
+nice cargo install --path . --force --features=feature_capable
+popd
