@@ -1,0 +1,2 @@
+#!/bin/dash
+SAL_USE_VCLPLUGIN=kf6 exec /bin/lofromtemplate "$@"

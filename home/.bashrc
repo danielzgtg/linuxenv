@@ -42,8 +42,8 @@ alias la='\ls -A'
 alias l='\ls -CF'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-alias cdsk='cd $(sk)'
-alias visk='vim $(sk)'
+alias cdsk='cd "$(sk)"'
+alias visk='vim "$(sk)"'
 mkdircd() {
   mkdir "$1" && cd "$1"
 }
@@ -63,10 +63,14 @@ alias venv='[ -d venv ] || python3 -m venv venv; . venv/bin/activate'
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 #. <(npm completion)
-alias nvm='unalias nvm && . "$NVM_DIR/nvm.sh" && nvm'
+alias nvm='unalias nvm && . ~/.nvm/nvm.sh && \
+. ~/.nvm/bash_completion && . <(npm completion) && \
+export NODE_REPL_HISTORY= && export NEXT_TELEMETRY_DISABLED=1 && \
+nvm'
 export GPG_TTY=`tty`
-git() { if [[ $1 == "pull" ]]; then command echo "Cannot pull!"; else command git "$@"; fi; }
-
+git() { if [[ $1 == "pull" ]]; then command echo 'Cannot pull!'; false; else command git "$@"; fi; }
+sudo() { echo 'Use "machinectl shell" not sudo'; false; }
+su() { echo 'Use "machinectl login" not su'; false; }
 
 # kdesrc-build #################################################################
 

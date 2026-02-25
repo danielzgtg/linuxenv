@@ -11,7 +11,7 @@ exec nice tar -c -v -I 'xz -9 -T12 -M24G' -f "$ARCHIVE" \
     .rustup/toolchains \
     .nvm/.git \
     .nvm/versions \
-    opt/nvmstub \
+    opt/nvmcurrent \
     .cache/tealdeer \
     .dotnet/tools \
     # Use Lean4web for Lean

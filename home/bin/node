@@ -1,0 +1,2 @@
+#!/bin/dash
+NODE_REPL_HISTORY= exec ~/opt/nodecurrent/bin/node "$@"

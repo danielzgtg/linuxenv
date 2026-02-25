@@ -1,0 +1,2 @@
+#!/bin/dash
+MANPAGER="sh -c 'col -bx | bat -l man -p'" MANROFFOPT=-c MANPATH=~/opt/nodecurrent/share/man exec /usr/bin/man "$@"

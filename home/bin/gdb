@@ -1,0 +1,2 @@
+#!/bin/dash
+DEBUGINFOD_URLS=https://debuginfod.ubuntu.com exec /usr/bin/gdb "$@"
