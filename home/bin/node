@@ -1,2 +1,2 @@
 #!/bin/dash
-NODE_REPL_HISTORY= exec ~/opt/nodecurrent/bin/node "$@"
+EXPO_NO_TELEMETRY=1 NEXT_TELEMETRY_DISABLED=1 NODE_REPL_HISTORY= exec ~/opt/nodecurrent/bin/node "$@"

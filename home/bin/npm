@@ -1,2 +1,0 @@
-#!/bin/dash
-NEXT_TELEMETRY_DISABLED=1 exec ~/opt/nodecurrent/bin/npm "$@"
