@@ -44,6 +44,7 @@ export PATH="$HOME/bin:$HOME/.cargo/bin:$HOME/kde/src/kdesrc-build:$HOME/.cabal/
 export MANPAGER="sh -c 'sed -e \"s/\\x1B\[[0-9;]*m\|.\\x08//g\" | bat -pl man'"
 export DEBUGINFOD_URLS=https://debuginfod.ubuntu.com
 export NEXT_TELEMETRY_DISABLED=1 # Nextjs.org
+export FC_LANG=C # Don't use UMing for Chinese when KDE is set to French
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
