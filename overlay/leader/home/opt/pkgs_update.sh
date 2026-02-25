@@ -38,8 +38,7 @@ fi
 nice ~/.cargo/bin/cargo-install-update install-update -af || true
 tldr --update
 
-pushd ~/CLionProjects/qsv
+cd ~/CLionProjects/qsv
 git fetch upstream
 git reset --hard upstream/master
-nice cargo install --path . --force --features=feature_capable
-popd
+unshare -cm --keep-caps dash ~/opt/pkgs_update_cargo.sh
