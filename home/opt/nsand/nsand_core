@@ -221,9 +221,8 @@ if [ -n "$passthrough" ]; then
   debian_chroot=passthrough:"$debian_chroot"
 fi
 unset NSAND_DATA
-# most cross-platform apps don't need symlinks
-# however, wine needs make-sock
-landlock_access=fs:make-char,make-fifo,make-block,make-sym
+# wine needs make-sock and make-sym
+landlock_access=fs:make-char,make-fifo,make-block
 echo sandboxed
 exec setpriv --no-new-privs \
   --inh-caps=-all --ambient-caps=-all --bounding-set=-all \
