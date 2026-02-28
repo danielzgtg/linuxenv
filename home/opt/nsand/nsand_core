@@ -135,7 +135,7 @@ fi
 
 # /etc/alternatives
 mkdir etc
-mount --bind /etc etc
+mount --rbind /etc etc
 if [ -n "$networked" ]; then
   mkdir -p run/systemd/resolve
   cp /run/systemd/resolve/stub-resolv.conf run/systemd/resolve/stub-resolv.conf
@@ -193,6 +193,11 @@ if [ -z "$overlay" ]; then
 fi
 cut -f 5 -d' ' /proc/self/mountinfo | while read -r path; do
   # Above assumes no spaces in path
+  if [[ "$path" =~ ^/etc ]]; then
+    # Avoid Operation not permitted.
+    # Should be fine, the files there being non-world-writable
+    continue
+  fi
   mount -o bind,remount,ro "$path"
 done
 mount -o bind,remount,rw /tmp
