@@ -70,6 +70,7 @@ if (!Object.keys(hostnameToSiteid).length) {
     await fs.writeFile("site-list.json", JSON.stringify(hostnameToSiteid) + "\n");
 }
 const siteidToApiSiteParameter = {};
+const siteidToHostname = {};
 const apiSiteParameters = process.argv.slice(2);
 const apiSiteParametersSet = new Set(apiSiteParameters);
 const siteids = [];
@@ -77,10 +78,12 @@ for (const siteJson of sitesJson) {
     const { api_site_parameter, site_url } = siteJson;
     if (!site_url.startsWith("https://")) throw new Error;
     if (!apiSiteParametersSet.has(api_site_parameter)) continue;
-    const siteid = hostnameToSiteid[site_url.substring(8)];
+    const hostname = site_url.substring(8);
+    const siteid = hostnameToSiteid[hostname];
     if (typeof siteid !== "number") throw new Error;
     siteids.push(siteid);
     siteidToApiSiteParameter[siteid] = api_site_parameter;
+    siteidToHostname[siteid] = hostname;
     apiSiteParametersSet.delete(api_site_parameter);
 }
 if (apiSiteParametersSet.size) throw new Error;
@@ -105,7 +108,7 @@ async function refreshSite(siteid) {
         const question = questions[i];
         if (question.creation_date <= lastCreationDate) continue;
         lastCreationDate = question.creation_date;
-        console.log(api_site_parameter, question.title);
+        console.log(`https://${siteidToHostname[siteid]}/q/${question.question_id} ${question.title}`)
     }
     if (lastCreationDate !== siteidToApiSiteParameter[siteid]) {
         lastCreationDates[siteid] = lastCreationDate;
