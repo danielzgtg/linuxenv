@@ -36,12 +36,19 @@ declare -a args=('-Thtml')
 args+=("$name")
 
 target="$name.$section.html"
-MANPATH=/usr/share/man:~/opt/nodecurrent/share/man mman "${args[@]}" > "$target"
-# * Justify like PDF output
-# * Simplify table borders
-# * Fix missing indent in systemd.unit
-# * Fix missing space after systemd's bullets. Elsewhere, the introduced extra space'll white-space-collapse
-sed -i '0,/^  <\/style>/s/^  <\/style>/*{text-align:justify;border-collapse:collapse}.Bd-indent{margin-left:4em}  <\/style>/;s/&#x2022;/\&#x2022; /g' "$target"
+# Use perldoc directly to avoid manpage formatting problems
+# Test via man, perl docs being scattered around e.g.
+# /usr/share/perl/5.40.1/pod/perlfunc.pod, /usr/share/perl5/List/MoreUtils.pm, and /usr/share/perl/5.40.1/Archive/Tar.pm
+if [[ -z "$section" && ( ( "$name" =~ ^perl && -f /usr/share/man/man1/"$name".1.gz ) || -f /usr/share/man/man3/"$name".3perl.gz || -f /usr/share/man/man3/"$name".3pm.gz ) ]]; then
+  perldoc -ohtml "$name" > "$target"
+else
+  MANPATH=/usr/share/man:~/opt/nodecurrent/share/man mman "${args[@]}" > "$target"
+  # * Justify like PDF output
+  # * Simplify table borders
+  # * Fix missing indent in systemd.unit
+  # * Fix missing space after systemd's bullets. Elsewhere, the introduced extra space'll white-space-collapse
+  sed -i '0,/^  <\/style>/s/^  <\/style>/*{text-align:justify;border-collapse:collapse}.Bd-indent{margin-left:4em}  <\/style>/;s/&#x2022;/\&#x2022; /g' "$target"
+fi
 xdg-open "$target"
 sleep 1
 unlink "$target"
