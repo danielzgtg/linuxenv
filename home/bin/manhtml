@@ -1,0 +1,47 @@
+#!/bin/bash
+set -e
+# Thanks https://unix.stackexchange.com/a/805213/524752 for mentioning the mandoc command
+
+usage() {
+  echo 'Usage: manhtml [section] name'
+  exit 1
+}
+
+if [ $# -eq 0 ]; then
+  usage
+fi
+
+section=
+[ $# -eq 2 ] && section="$1" && shift || :
+[ -z "$section" ] || [[ $section =~ ^[1-8]$ ]] || {
+  echo 'Section must be a number. Use hyphens for subcommands'
+  exit 1
+}
+
+name="$1"
+shift
+
+if ! [[ $name =~ [a-z]+ ]]; then
+  echo 'name must be lowercase alphabetical'
+  usage
+fi
+
+if [ $# -ne 0 ]; then
+  usage
+fi
+
+cd "${XDG_RUNTIME_DIR:-/run/user/$UID}"
+declare -a args=('-Thtml')
+[ -n "$section" ] && args+=("$section") || :
+args+=("$name")
+
+target="$name.$section.html"
+MANPATH=/usr/share/man:~/opt/nodecurrent/share/man mman "${args[@]}" > "$target"
+# * Justify like PDF output
+# * Simplify table borders
+# * Fix missing indent in systemd.unit
+# * Fix missing space after systemd's bullets. Elsewhere, the introduced extra space'll white-space-collapse
+sed -ie '/<\/style>/s/^/*{text-align:justify;border-collapse:collapse}.Bd-indent{margin-left:4em}/;s/&#x2022;/\&#x2022; /g' "$target"
+xdg-open "$target"
+sleep 1
+unlink "$target"
