@@ -47,7 +47,7 @@ else
   # * Simplify table borders
   # * Fix missing indent in systemd.unit
   # * Fix missing space after systemd's bullets. Elsewhere, the introduced extra space'll white-space-collapse
-  sed -i '0,/^  <\/style>/s/^  <\/style>/*{text-align:justify;border-collapse:collapse}.Bd-indent{margin-left:4em}  <\/style>/;s/&#x2022;/\&#x2022; /g' "$target"
+  sed -i '0,/^  <\/style>/s/^  <\/style>/*{text-align:justify;border-collapse:collapse}.Bd-indent{margin-left:4em}  <\/style>/;s/&#x2022;/\&#x2022; /g;/^<pre>/,/^<\/pre>$/{/^<br\/>$/d}' "$target"
 fi
 xdg-open "$target"
 sleep 1
