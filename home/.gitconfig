@@ -15,7 +15,7 @@
 [color]
 	ui = auto
 [commit]
-	gpgsign = true 
+	gpgsign = true
 [core]
 	excludesfile = ~/.gitignore
 	pager = delta
@@ -26,7 +26,7 @@
 [http]
 	cookiefile = /home/home/.gitcookies
 [interactive]
-	diffFilter = delta --color-only
+	diffFilter = delta --color-only --tabs=4
 [merge]
 	tool = meld
 	renameLimit = 999999
@@ -41,3 +41,10 @@
 [user]
 	name = Daniel Tang
 	email = danielzgtg.opensource@gmail.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[mergetool]
+	keepBackup = false
