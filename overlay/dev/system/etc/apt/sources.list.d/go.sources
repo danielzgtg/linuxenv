@@ -1,6 +1,6 @@
 Types: deb
 URIs: https://ppa.launchpadcontent.net/longsleep/golang-backports/ubuntu/
-Suites: questing
+Suites: resolute
 Components: main
 Architectures: amd64
 Signed-By:

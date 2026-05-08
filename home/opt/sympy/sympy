@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+cd ~/opt/sympy
+. venv/bin/activate
+exec ipython -i ~/opt/sympy/init_sympy.py

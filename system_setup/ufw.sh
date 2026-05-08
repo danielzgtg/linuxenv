@@ -25,6 +25,7 @@ egress_ethernet() {
 }
 
 ufw allow in on docker0 from 172.17.0.0/16
+uft allow in on virbr0 from 0.0.0.0/0
 ingress proto udp port 137 comment 'winbind'
 ingress proto tcp port 1714:1764 comment 'kdeconnect'
 ingress_log proto tcp port 2222 comment 'ssh'
@@ -34,7 +35,8 @@ ingress port 6881 comment 'ktorrent'
 ingress proto udp port 7881,8881 comment 'ktorrent'
 ingress proto tcp port 8000,8080 comment 'web'
 
-ufw allow out in docker0 from 172.17.0.0/16
+ufw allow out on docker0 from 172.17.0.0/16
+ufw allow out on virbr0 from 0.0.0.0/0
 egress proto tcp port 22,2222 comment 'ssh'
 egress proto tcp port 43 comment 'whois'
 egress proto tcp port 80,8000,8080 comment 'web'

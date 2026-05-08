@@ -2,15 +2,15 @@
 set -e
 rm -f current
 rm -rf gradle-*
-TARGET='gradle-7.6'
-NAME='gradle-7.6-all.zip'
+TARGET='gradle-9.4.1'
+NAME='gradle-9.4.1-all.zip'
 wget https://services.gradle.org/distributions/"$NAME"
-if ! sha256sum "$NAME" | grep -q 312eb12875e1747e05c2f81a4789902d7e4ec5defbd1eefeaccc08acf096505d; then
+if ! sha256sum "$NAME" | grep -q 708d2c6ecc97ca9a11838ef64a6c2301151b8dd10387e22dc1a12c30557cab5b; then
   echo 'Hash Error'
   exit 1
 fi
 unzip "$NAME"
-exa -l "$TARGET"
+eza -l "$TARGET"
 unlink "$NAME"
 ln -s "$TARGET" current
 exec sync

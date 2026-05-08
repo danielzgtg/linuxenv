@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+. ~/opt/gdown/venv/bin/activate
+exec ~/opt/gdown/venv/bin/gdown "$@"

@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+. ~/opt/netron/venv/bin/activate
+exec ~/opt/netron/venv/bin/netron "$@"

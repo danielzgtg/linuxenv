@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+. ~/opt/kaggle/venv/bin/activate
+exec ~/opt/kaggle/venv/bin/kaggle "$@"

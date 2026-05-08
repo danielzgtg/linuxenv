@@ -107,4 +107,12 @@ set nobackup
 set noswapfile
 set noundofile
 set viminfofile=NONE
+set number
 
+set tabstop=4
+set shiftwidth=0
+set softtabstop=0
+" set expandtab
+set tw=0
+let g:netrw_dirhistmax = 0
+noremap WW :w<CR>

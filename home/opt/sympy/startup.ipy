@@ -1,0 +1,9 @@
+%load_ext icat
+%icat
+import sympy
+print(123)
+import my_setup
+sympy.init_printing(use_latex="png")
+a=sympy.sqrt(2)
+from IPython.display import display
+display(a)

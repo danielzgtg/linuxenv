@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+. ~/opt/restview/venv/bin/activate
+exec ~/opt/restview/venv/bin/restview "$@"

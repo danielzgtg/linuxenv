@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+. ~/opt/unrpa/venv/bin/activate
+exec ~/opt/unrpa/venv/bin/unrpa "$@"
